@@ -13,12 +13,14 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class ScientificmagicmodGen implements IWorldGenerator {
 	public WorldGenerator Redbeanore;
+	public WorldGenerator grass;
 	public WorldGenerator CA_r;
 	public WorldGenerator CA_w;
 	public WorldGenerator CA_b;
 	public WorldGenerator CA_bl;
 	public ScientificmagicmodGen(){
 		Redbeanore = new WorldGenMinable(ScientificmagicBlock.Redbeanore, 8);
+		grass = new WorldGenMinable(Blocks.grass, 1);
 		CA_r = new WorldGenMinable(ScientificmagicBlock.CA_r, 1,20, Blocks.grass);
 		CA_w = new WorldGenMinable(ScientificmagicBlock.CA_w, 1,20, Blocks.grass);
 		CA_b = new WorldGenMinable(ScientificmagicBlock.CA_b, 1,20, Blocks.grass);
@@ -47,7 +49,8 @@ public class ScientificmagicmodGen implements IWorldGenerator {
 			int x = chunkX * 16 + rand.nextInt(16);
 			int y = ( minHeight + rand.nextInt(heightDiff) )+ 2;
 			int z = chunkZ * 16 + rand.nextInt(16);
-			CA_r.generate(world, rand, x, y, z);
+			grass.generate(world, rand, x, y, z);
+			CA_r.generate(world, rand, x, y + 1, z);
 		}
 	}
 	private void CAGen1(WorldGenerator generator, World world, Random rand, int chunkX, int chunkZ, int chancesToSpawn, int minHeight, int maxHeight){
@@ -56,7 +59,8 @@ public class ScientificmagicmodGen implements IWorldGenerator {
 			int x = chunkX * 16 + rand.nextInt(16);
 			int y = ( minHeight + rand.nextInt(heightDiff) )+ 2;
 			int z = chunkZ * 16 + rand.nextInt(16);
-			CA_w.generate(world, rand, x, y, z);
+			grass.generate(world, rand, x, y, z);
+			CA_w.generate(world, rand, x, y + 1, z);
 		}
 	}
 	private void CAGen2(WorldGenerator generator, World world, Random rand, int chunkX, int chunkZ, int chancesToSpawn, int minHeight, int maxHeight){
@@ -65,7 +69,8 @@ public class ScientificmagicmodGen implements IWorldGenerator {
 			int x = chunkX * 16 + rand.nextInt(16);
 			int y = ( minHeight + rand.nextInt(heightDiff) )+ 2;
 			int z = chunkZ * 16 + rand.nextInt(16);
-			CA_b.generate(world, rand, x, y, z);
+			grass.generate(world, rand, x, y, z);
+			CA_b.generate(world, rand, x, y + 1, z);
 		}
 	}
 	private void CAGen3(WorldGenerator generator, World world, Random rand, int chunkX, int chunkZ, int chancesToSpawn, int minHeight, int maxHeight){
@@ -74,7 +79,8 @@ public class ScientificmagicmodGen implements IWorldGenerator {
 			int x = chunkX * 16 + rand.nextInt(16);
 			int y = ( minHeight + rand.nextInt(heightDiff) )+ 2;
 			int z = chunkZ * 16 + rand.nextInt(16);
-			CA_bl.generate(world, rand, x, y, z);
+			grass.generate(world, rand, x, y, z);
+			CA_bl.generate(world, rand, x, y + 1, z);
 		}
 	}
 }
