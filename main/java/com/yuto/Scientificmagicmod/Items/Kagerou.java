@@ -1,5 +1,7 @@
 package com.yuto.Scientificmagicmod.Items;
 
+import com.yuto.Scientificmagicmod.ScientificmagicMod;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.ItemSword;
 
@@ -9,7 +11,7 @@ public class Kagerou extends ItemSword {
 		super(kagerou);
 		String name = "Kagerou";
 
-        this.setCreativeTab(null);
+        this.setCreativeTab(ScientificmagicMod.Scientificmagicmod);
         this.setUnlocalizedName( name );
         maxStackSize = 1;
 
