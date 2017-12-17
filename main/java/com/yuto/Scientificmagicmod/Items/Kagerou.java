@@ -24,6 +24,6 @@ public class Kagerou extends ItemSword {
 	}
 	@Override
     public void onUpdate(ItemStack itemStack, World world, Entity entity, int slot, boolean isHeld) {
-
+		
     }
 }
