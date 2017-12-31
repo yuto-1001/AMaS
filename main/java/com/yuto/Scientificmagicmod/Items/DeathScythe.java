@@ -1,10 +1,10 @@
 package com.yuto.Scientificmagicmod.Items;
 
 import com.yuto.Scientificmagicmod.ScientificmagicMod;
+import com.yuto.Scientificmagicmod.entity.EntityDeathScythe;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntityEgg;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
@@ -35,15 +35,16 @@ public class DeathScythe extends ItemSword {
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer)
 	{
-
 		boolean creative = entityplayer.capabilities.isCreativeMode;
 		float dam = 21.0F;
 		int cooltime = 0;
-		float speed = 1.0F;
-		Entity bullet = new EntityEgg(world, ,);
-		bullet.setFire(100);
+		float speed = 4.0F;
+		EntityDeathScythe Scythe = new EntityDeathScythe(world, entityplayer, speed, 0, dam, 1, cooltime);
 		if (!world.isRemote) {
-			world.spawnEntityInWorld(bullet);
+			world.spawnEntityInWorld(Scythe);
+			if(!creative){
+				itemstack.damageItem(1, entityplayer);
+			}
 		}
 		return itemstack;
 	}
