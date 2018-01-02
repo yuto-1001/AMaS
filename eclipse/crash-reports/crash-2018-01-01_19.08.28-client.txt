@@ -1,0 +1,122 @@
+---- Minecraft Crash Report ----
+// This is a token for 1 free hug. Redeem at your nearest Mojangsta: [~~HUG~~]
+
+Time: 18/01/01 19:08
+Description: Rendering entity in world
+
+java.lang.NullPointerException: Rendering entity in world
+	at com.yuto.Scientificmagicmod.ScytheRender.renderArrow(ScytheRender.java:26)
+	at com.yuto.Scientificmagicmod.ScytheRender.doRender(ScytheRender.java:41)
+	at net.minecraft.client.renderer.entity.RenderManager.func_147939_a(RenderManager.java:300)
+	at net.minecraft.client.renderer.entity.RenderManager.renderEntityStatic(RenderManager.java:278)
+	at net.minecraft.client.renderer.entity.RenderManager.renderEntitySimple(RenderManager.java:251)
+	at net.minecraft.client.renderer.RenderGlobal.renderEntities(RenderGlobal.java:527)
+	at net.minecraft.client.renderer.EntityRenderer.renderWorld(EntityRenderer.java:1300)
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1087)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1067)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:962)
+	at net.minecraft.client.main.Main.main(Main.java:164)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(Unknown Source)
+	at GradleStart.main(Unknown Source)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at com.yuto.Scientificmagicmod.ScytheRender.renderArrow(ScytheRender.java:26)
+	at com.yuto.Scientificmagicmod.ScytheRender.doRender(ScytheRender.java:41)
+
+-- Entity being rendered --
+Details:
+	Entity Type: ScientificmagicMod.Entity_DeathScythe (com.yuto.Scientificmagicmod.entity.EntityDeathScythe)
+	Entity ID: 1041
+	Entity Name: entity.ScientificmagicMod.Entity_DeathScythe.name
+	Entity's Exact location: 341.94, 65.38, 388.64
+	Entity's Block location: World: (341,65,388), Chunk: (at 5,4,4 in 21,24; contains blocks 336,0,384 to 351,255,399), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Entity's Momentum: 0.51, -1.40, -3.28
+
+-- Renderer details --
+Details:
+	Assigned renderer: com.yuto.Scientificmagicmod.ScytheRender@8f44eb4
+	Location: 0.10,-0.90,-0.69 - World: (0,-1,-1), Chunk: (at 0,-1,15 in 0,-1; contains blocks 0,0,-16 to 15,255,-1), Region: (0,-1; contains chunks 0,-32 to 31,-1, blocks 0,0,-512 to 511,255,-1)
+	Rotation: 171.20268
+	Delta: 0.18220544
+Stacktrace:
+	at net.minecraft.client.renderer.entity.RenderManager.func_147939_a(RenderManager.java:300)
+	at net.minecraft.client.renderer.entity.RenderManager.renderEntityStatic(RenderManager.java:278)
+	at net.minecraft.client.renderer.entity.RenderManager.renderEntitySimple(RenderManager.java:251)
+	at net.minecraft.client.renderer.RenderGlobal.renderEntities(RenderGlobal.java:527)
+	at net.minecraft.client.renderer.EntityRenderer.renderWorld(EntityRenderer.java:1300)
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 1 total; [EntityClientPlayerMP['Player179'/430, l='MpServer', x=341.38, y=67.55, z=392.31]]
+	Chunk stats: MultiplayerChunkCache: 320, 320
+	Level seed: 0
+	Level generator: ID 00 - default, ver 1. Features enabled: false
+	Level generator options: 
+	Level spawn location: World: (240,64,256), Chunk: (at 0,4,0 in 15,16; contains blocks 240,0,256 to 255,255,271), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Level time: 29044 game time, 29044 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: false
+	Forced entities: 137 total; [EntitySquid['イカ'/256, l='MpServer', x=329.75, y=56.45, z=347.47], EntitySquid['イカ'/257, l='MpServer', x=329.50, y=58.78, z=346.50], EntitySquid['イカ'/258, l='MpServer', x=334.14, y=55.94, z=342.52], EntitySquid['イカ'/259, l='MpServer', x=328.50, y=56.00, z=347.53], EntitySquid['イカ'/260, l='MpServer', x=333.15, y=58.42, z=344.00], EntitySquid['イカ'/261, l='MpServer', x=336.11, y=55.00, z=346.72], EntitySquid['イカ'/262, l='MpServer', x=327.47, y=57.11, z=348.47], EntitySquid['イカ'/263, l='MpServer', x=332.47, y=55.00, z=343.36], EntitySquid['イカ'/264, l='MpServer', x=336.19, y=58.84, z=342.82], EntitySquid['イカ'/265, l='MpServer', x=333.95, y=59.40, z=338.50], EntitySquid['イカ'/266, l='MpServer', x=332.47, y=55.00, z=340.47], EntitySquid['イカ'/267, l='MpServer', x=332.89, y=57.34, z=340.60], EntitySquid['イカ'/269, l='MpServer', x=334.86, y=55.02, z=343.92], EntitySquid['イカ'/270, l='MpServer', x=332.49, y=55.03, z=345.46], EntitySquid['イカ'/271, l='MpServer', x=330.59, y=58.38, z=354.50], EntityDeathScythe['entity.ScientificmagicMod.Entity_DeathScythe.name'/1041, l='MpServer', x=341.94, y=65.38, z=388.64], EntityItem['item.item.rottenFlesh'/274, l='MpServer', x=324.25, y=67.13, z=367.91], EntityItem['item.item.bone'/275, l='MpServer', x=320.28, y=69.13, z=370.78], EntitySkeleton['スケルトン'/276, l='MpServer', x=325.25, y=27.00, z=414.51], EntitySpider['クモ'/282, l='MpServer', x=330.16, y=15.00, z=434.84], EntityZombie['ゾンビ'/283, l='MpServer', x=325.94, y=57.00, z=434.47], EntityZombie['ゾンビ'/284, l='MpServer', x=332.00, y=52.00, z=436.44], EntityCow['ウシ'/285, l='MpServer', x=335.69, y=78.00, z=455.50], EntityZombie['ゾンビ'/289, l='MpServer', x=339.16, y=21.00, z=348.53], EntityCreeper['クリーパー'/290, l='MpServer', x=351.13, y=26.00, z=343.75], EntityZombie['ゾンビ'/291, l='MpServer', x=350.50, y=33.00, z=342.50], EntityCreeper['クリーパー'/292, l='MpServer', x=347.00, y=33.00, z=337.44], EntitySpider['クモ'/293, l='MpServer', x=349.63, y=33.00, z=340.41], EntitySquid['イカ'/294, l='MpServer', x=338.55, y=55.42, z=346.70], EntitySquid['イカ'/295, l='MpServer', x=333.45, y=60.42, z=342.08], EntitySquid['イカ'/296, l='MpServer', x=335.37, y=59.30, z=340.42], EntitySquid['イカ'/297, l='MpServer', x=337.46, y=58.39, z=350.18], EntitySquid['イカ'/298, l='MpServer', x=336.29, y=55.28, z=342.24], EntitySkeleton['スケルトン'/306, l='MpServer', x=338.50, y=21.00, z=396.50], EntitySkeleton['スケルトン'/307, l='MpServer', x=339.44, y=22.00, z=399.94], EntityCow['ウシ'/308, l='MpServer', x=336.28, y=63.00, z=410.50], EntityCow['ウシ'/314, l='MpServer', x=345.28, y=70.00, z=424.50], EntityCow['ウシ'/315, l='MpServer', x=348.56, y=69.00, z=434.72], EntityCreeper['クリーパー'/316, l='MpServer', x=353.68, y=31.00, z=463.36], EntityBat['コウモリ'/317, l='MpServer', x=347.50, y=28.10, z=455.75], EntityCow['ウシ'/318, l='MpServer', x=338.91, y=72.00, z=459.09], EntityCow['ウシ'/319, l='MpServer', x=351.53, y=75.00, z=449.47], EntityBat['コウモリ'/330, l='MpServer', x=349.25, y=14.53, z=431.92], EntitySkeleton['スケルトン'/333, l='MpServer', x=352.06, y=30.00, z=460.09], EntitySkeleton['スケルトン'/334, l='MpServer', x=350.16, y=29.00, z=461.98], EntityCow['ウシ'/335, l='MpServer', x=361.75, y=72.00, z=460.31], EntityCreeper['クリーパー'/340, l='MpServer', x=379.50, y=24.00, z=346.58], EntityBat['コウモリ'/364, l='MpServer', x=397.52, y=41.93, z=357.45], EntityCreeper['クリーパー'/365, l='MpServer', x=399.50, y=29.00, z=399.50], EntitySkeleton['スケルトン'/366, l='MpServer', x=391.91, y=37.00, z=415.66], EntityChicken['ニワトリ'/367, l='MpServer', x=393.22, y=68.00, z=452.47], EntityChicken['ニワトリ'/368, l='MpServer', x=395.56, y=68.00, z=452.69], EntityChicken['ニワトリ'/369, l='MpServer', x=396.41, y=65.00, z=462.63], EntityZombie['ゾンビ'/376, l='MpServer', x=414.12, y=54.00, z=406.78], EntityCreeper['クリーパー'/394, l='MpServer', x=420.38, y=44.00, z=392.54], EntityCreeper['クリーパー'/395, l='MpServer', x=419.92, y=44.00, z=391.54], EntityZombie['ゾンビ'/396, l='MpServer', x=419.94, y=44.00, z=394.50], EntityCreeper['クリーパー'/397, l='MpServer', x=417.03, y=51.00, z=413.69], EntityBat['コウモリ'/400, l='MpServer', x=417.48, y=29.69, z=442.64], EntityBat['コウモリ'/404, l='MpServer', x=419.32, y=29.49, z=451.76], EntityCow['ウシ'/152, l='MpServer', x=263.63, y=64.00, z=344.28], EntityZombie['ゾンビ'/154, l='MpServer', x=270.37, y=42.00, z=389.03], EntityZombie['ゾンビ'/155, l='MpServer', x=270.41, y=44.63, z=393.52], EntityZombie['ゾンビ'/156, l='MpServer', x=265.94, y=43.00, z=387.50], EntityCreeper['クリーパー'/158, l='MpServer', x=271.31, y=45.00, z=402.16], EntityCreeper['クリーパー'/159, l='MpServer', x=269.66, y=46.00, z=405.03], EntitySpider['クモ'/160, l='MpServer', x=273.20, y=45.00, z=403.84], EntityEnderman['エンダーマン'/163, l='MpServer', x=269.27, y=35.00, z=427.03], EntityCow['ウシ'/432, l='MpServer', x=286.25, y=80.00, z=471.34], EntityCow['ウシ'/177, l='MpServer', x=283.53, y=66.00, z=351.34], EntityCreeper['クリーパー'/433, l='MpServer', x=311.50, y=17.00, z=466.50], EntityItem['item.item.arrow'/178, l='MpServer', x=283.13, y=69.13, z=367.97], EntityCow['ウシ'/434, l='MpServer', x=325.50, y=71.00, z=467.39], EntityClientPlayerMP['Player179'/430, l='MpServer', x=341.38, y=67.55, z=392.31], EntityChicken['ニワトリ'/179, l='MpServer', x=284.53, y=69.00, z=363.53], EntityZombie['ゾンビ'/180, l='MpServer', x=288.55, y=28.69, z=381.50], EntityItem['item.item.bone'/181, l='MpServer', x=283.13, y=69.13, z=368.31], EntityChicken['ニワトリ'/182, l='MpServer', x=276.53, y=68.00, z=368.53], EntityBat['コウモリ'/439, l='MpServer', x=362.63, y=31.10, z=472.88], EntitySheep['ヒツジ'/183, l='MpServer', x=275.31, y=68.00, z=370.75], EntitySkeleton['スケルトン'/184, l='MpServer', x=276.94, y=26.00, z=387.53], EntityChicken['ニワトリ'/441, l='MpServer', x=371.22, y=69.88, z=470.34], EntityZombie['ゾンビ'/185, l='MpServer', x=274.50, y=46.00, z=393.88], EntityCreeper['クリーパー'/186, l='MpServer', x=273.72, y=46.00, z=396.25], EntitySheep['ヒツジ'/187, l='MpServer', x=287.38, y=69.00, z=398.50], EntityItem['item.item.beefRaw'/188, l='MpServer', x=283.84, y=70.13, z=384.13], EntitySkeleton['スケルトン'/189, l='MpServer', x=278.50, y=21.00, z=405.09], EntitySkeleton['スケルトン'/190, l='MpServer', x=279.58, y=20.34, z=397.89], EntitySkeleton['スケルトン'/447, l='MpServer', x=414.50, y=42.81, z=466.69], EntityZombie['ゾンビ'/191, l='MpServer', x=274.63, y=21.00, z=405.06], EntityZombie['ゾンビ'/192, l='MpServer', x=274.50, y=21.00, z=404.13], EntityCreeper['クリーパー'/193, l='MpServer', x=276.09, y=42.00, z=410.50], EntityZombie['ゾンビ'/194, l='MpServer', x=277.47, y=40.00, z=412.94], EntitySpider['クモ'/195, l='MpServer', x=276.88, y=38.00, z=415.34], EntityBat['コウモリ'/196, l='MpServer', x=279.09, y=38.10, z=416.03], EntityZombie['ゾンビ'/197, l='MpServer', x=274.99, y=38.00, z=417.19], EntityItem['item.item.rottenFlesh'/198, l='MpServer', x=287.47, y=73.13, z=416.88], EntityItem['item.item.arrow'/199, l='MpServer', x=284.19, y=74.13, z=437.94], EntityItem['item.item.bone'/200, l='MpServer', x=284.19, y=74.13, z=437.34], EntityCow['ウシ'/205, l='MpServer', x=300.34, y=63.00, z=319.28], EntityCow['ウシ'/206, l='MpServer', x=293.66, y=63.00, z=324.50], EntityItem['item.item.leather'/207, l='MpServer', x=293.31, y=63.13, z=332.56], EntityItem['item.item.beefRaw'/208, l='MpServer', x=293.94, y=63.13, z=332.94], EntityItem['item.item.leather'/209, l='MpServer', x=301.13, y=68.13, z=362.53], EntityItem['item.item.beefRaw'/210, l='MpServer', x=302.22, y=68.13, z=364.28], EntityItem['item.item.leather'/211, l='MpServer', x=298.78, y=69.13, z=358.97], EntityItem['item.item.beefRaw'/212, l='MpServer', x=299.88, y=69.13, z=359.53], EntityItem['item.item.beefRaw'/213, l='MpServer', x=293.22, y=69.13, z=358.19], EntityBat['コウモリ'/215, l='MpServer', x=289.62, y=43.26, z=379.49], EntitySkeleton['スケルトン'/216, l='MpServer', x=295.50, y=53.00, z=382.69], EntitySkeleton['スケルトン'/217, l='MpServer', x=296.31, y=53.00, z=380.63], EntitySkeleton['スケルトン'/218, l='MpServer', x=297.56, y=53.00, z=383.06], EntityItem['item.item.rottenFlesh'/219, l='MpServer', x=296.56, y=68.13, z=375.16], EntityBat['コウモリ'/220, l='MpServer', x=296.50, y=59.10, z=389.25], EntitySheep['ヒツジ'/221, l='MpServer', x=294.50, y=58.00, z=391.66], EntityBat['コウモリ'/222, l='MpServer', x=297.66, y=61.10, z=393.25], EntityZombie['ゾンビ'/223, l='MpServer', x=293.50, y=56.00, z=388.06], EntityBat['コウモリ'/224, l='MpServer', x=296.75, y=59.10, z=389.47], EntitySkeleton['スケルトン'/225, l='MpServer', x=293.50, y=63.00, z=384.09], EntityCreeper['クリーパー'/226, l='MpServer', x=303.50, y=61.00, z=386.94], EntityBat['コウモリ'/227, l='MpServer', x=295.44, y=59.10, z=389.41], EntityBat['コウモリ'/228, l='MpServer', x=301.53, y=63.02, z=389.27], EntityZombie['ゾンビ'/230, l='MpServer', x=294.30, y=34.58, z=402.31], EntityZombie['ゾンビ'/231, l='MpServer', x=292.68, y=32.97, z=408.57], EntityZombie['ゾンビ'/232, l='MpServer', x=292.50, y=35.00, z=412.50], EntityItem['item.item.rottenFlesh'/233, l='MpServer', x=292.94, y=73.13, z=446.31], EntityZombie['ゾンビ'/238, l='MpServer', x=316.53, y=20.00, z=346.94], EntityZombie['ゾンビ'/239, l='MpServer', x=316.84, y=55.00, z=348.59], EntityCow['ウシ'/240, l='MpServer', x=307.63, y=68.00, z=345.31], EntityItem['item.item.arrow'/242, l='MpServer', x=319.28, y=69.13, z=370.25], EntityCow['ウシ'/243, l='MpServer', x=306.16, y=72.00, z=395.03], EntityZombie['ゾンビ'/244, l='MpServer', x=313.97, y=29.00, z=412.50], EntityCreeper['クリーパー'/247, l='MpServer', x=312.22, y=16.00, z=460.84], EntityItem['item.item.rottenFlesh'/252, l='MpServer', x=322.34, y=63.13, z=333.31], EntityZombie['ゾンビ'/253, l='MpServer', x=324.55, y=21.00, z=350.10], EntityZombie['ゾンビ'/254, l='MpServer', x=328.13, y=23.00, z=351.50], EntityBat['コウモリ'/255, l='MpServer', x=322.25, y=24.10, z=351.47]]
+	Retry entities: 0 total; []
+	Server brand: fml,forge
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.WorldClient.addWorldInfoToCrashReport(WorldClient.java:415)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2566)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:984)
+	at net.minecraft.client.main.Main.main(Main.java:164)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(Unknown Source)
+	at GradleStart.main(Unknown Source)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.7.10
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_112, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 649430448 bytes (619 MB) / 1038876672 bytes (990 MB) up to 1038876672 bytes (990 MB)
+	JVM Flags: 3 total; -Xincgc -Xmx1024M -Xms1024M
+	AABB Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	IntCache: cache: 11, tcache: 0, allocated: 13, tallocated: 95
+	FML: MCP v9.05 FML v7.10.99.99 Minecraft Forge 10.13.4.1614 4 mods loaded, 4 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+	UCHIJAAAA	mcp{9.05} [Minecraft Coder Pack] (minecraft.jar) 
+	UCHIJAAAA	FML{7.10.99.99} [Forge Mod Loader] (forgeSrc-1.7.10-10.13.4.1614-1.7.10.jar) 
+	UCHIJAAAA	Forge{10.13.4.1614} [Minecraft Forge] (forgeSrc-1.7.10-10.13.4.1614-1.7.10.jar) 
+	UCHIJAAAA	ScientificmagicMod{1.0.0} [Scientific magic Mod] (bin) 
+	GL info: ' Vendor: 'NVIDIA Corporation' Version: '4.6.0 NVIDIA 388.13' Renderer: 'GeForce GTX 1050/PCIe/SSE2'
+	Launched Version: 1.7.10
+	LWJGL: 2.9.1
+	OpenGL: GeForce GTX 1050/PCIe/SSE2 GL version 4.6.0 NVIDIA 388.13, NVIDIA Corporation
+	GL Caps: Using GL 1.3 multitexturing.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Anisotropic filtering is supported and maximum anisotropy is 16.
+Shaders are available because OpenGL 2.1 is supported.
+
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
+	Type: Client (map_client.txt)
+	Resource Packs: []
+	Current Language: 日本語 (日本)
+	Profiler Position: N/A (disabled)
+	Vec3 Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	Anisotropic Filtering: Off (1)

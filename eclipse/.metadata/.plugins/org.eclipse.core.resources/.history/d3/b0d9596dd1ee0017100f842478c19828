@@ -1,0 +1,5 @@
+package com.yuto.Scientificmagicmod.client;
+
+public class ClientSideProxy {
+
+}
