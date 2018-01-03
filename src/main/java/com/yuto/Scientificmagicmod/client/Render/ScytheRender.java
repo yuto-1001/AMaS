@@ -4,13 +4,16 @@ import org.lwjgl.opengl.GL11;
 
 import com.yuto.Scientificmagicmod.Entity.EntityDeathScythe;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
-public class ScytheRender extends Render{
+@SideOnly(Side.CLIENT)
+public class ScytheRender extends Render {
 	private static final ResourceLocation ScytheTextures = new ResourceLocation("scientificmagicmod", "textures/entity/DeathScythe.png");
 
     protected ModelBase modelBullet;

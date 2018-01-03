@@ -24,8 +24,8 @@ import net.minecraft.item.Item;
 	useMetadata = true)
 
 public class ScientificmagicMod {
-	@SidedProxy(clientSide = "Scientificmagicmod.Client.ClientProxy",
-				serverSide = "Scientificmagicmod.CommonProxy")
+	@SidedProxy(clientSide = "com.yuto.Scientificmagicmod.Client.ClientProxy",
+				serverSide = "com.yuto.Scientificmagicmod.CommonProxy")
 	public static CommonProxy proxy;
 
 	public static final String MODID = "ScientificmagicMod";
@@ -53,6 +53,7 @@ public class ScientificmagicMod {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
+		proxy.registerRenderers();
     }
 	 public static CreativeTabs Scientificmagicmod
      = new CreativeTabs( "scientificmagicmodtab" )
