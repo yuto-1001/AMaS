@@ -2,7 +2,7 @@ package com.yuto.Scientificmagicmod;
 
 import net.minecraft.world.World;
 
-public class CommonSideProxy {
+public class CommonProxy {
 	public void registerRenderers()
 	{
 

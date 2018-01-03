@@ -1,4 +1,4 @@
-package com.yuto.Scientificmagicmod.entity;
+package com.yuto.Scientificmagicmod.Entity;
 
 import java.util.ArrayList;
 import java.util.List;

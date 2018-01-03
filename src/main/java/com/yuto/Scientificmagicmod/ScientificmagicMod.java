@@ -3,8 +3,8 @@ package com.yuto.Scientificmagicmod;
 import java.io.IOException;
 
 import com.yuto.Scientificmagicmod.Block.ScientificmagicBlock;
+import com.yuto.Scientificmagicmod.Entity.EntityDeathScythe;
 import com.yuto.Scientificmagicmod.Items.ScientificmagicItems;
-import com.yuto.Scientificmagicmod.entity.EntityDeathScythe;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -20,12 +20,13 @@ import net.minecraft.item.Item;
 	modid = ScientificmagicMod.MODID,
 	name = ScientificmagicMod.MODNAME,
 	version = ScientificmagicMod.VERSION,
-	dependencies = "required-after:Forge@[10.12.1.1090,)",
+	dependencies = "required-after:Forge@10.12.1.1090,)",
 	useMetadata = true)
 
 public class ScientificmagicMod {
-	@SidedProxy(clientSide = "Scientificmagicmod.client.ClientSideProxy", serverSide = "Scientificmagicmod.CommonSideProxy")
-	public static CommonSideProxy proxy;
+	@SidedProxy(clientSide = "Scientificmagicmod.Client.ClientProxy",
+				serverSide = "Scientificmagicmod.CommonProxy")
+	public static CommonProxy proxy;
 
 	public static final String MODID = "ScientificmagicMod";
 	public static final String MODNAME = "ScientificmagicMod";

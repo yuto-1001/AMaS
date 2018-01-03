@@ -1,8 +1,8 @@
-package com.yuto.Scientificmagicmod.client.Render;
+package com.yuto.Scientificmagicmod.Client.Render;
 
 import org.lwjgl.opengl.GL11;
 
-import com.yuto.Scientificmagicmod.entity.EntityDeathScythe;
+import com.yuto.Scientificmagicmod.Entity.EntityDeathScythe;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.Tessellator;
@@ -16,7 +16,7 @@ public class ScytheRender extends Render{
     protected ModelBase modelBullet;
 
     public ScytheRender() {
-    	
+
 	}
 
     public void doRender(Entity entity, double x, double y, double z, float yaw, float pitch)

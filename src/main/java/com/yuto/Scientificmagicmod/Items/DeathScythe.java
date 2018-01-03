@@ -1,7 +1,7 @@
 package com.yuto.Scientificmagicmod.Items;
 
 import com.yuto.Scientificmagicmod.ScientificmagicMod;
-import com.yuto.Scientificmagicmod.entity.EntityDeathScythe;
+import com.yuto.Scientificmagicmod.Entity.EntityDeathScythe;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.entity.player.EntityPlayer;
