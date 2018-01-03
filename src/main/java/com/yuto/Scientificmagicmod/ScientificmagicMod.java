@@ -8,6 +8,7 @@ import com.yuto.Scientificmagicmod.entity.EntityDeathScythe;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -23,12 +24,17 @@ import net.minecraft.item.Item;
 	useMetadata = true)
 
 public class ScientificmagicMod {
+	@SidedProxy(clientSide = "Scientificmagicmod.client.ClientSideProxy", serverSide = "Scientificmagicmod.CommonSideProxy")
+	public static CommonSideProxy proxy;
+
 	public static final String MODID = "ScientificmagicMod";
 	public static final String MODNAME = "ScientificmagicMod";
 	public static final String VERSION = "1.0.0";
+
 	@Mod.Instance(MODID)
 	public static ScientificmagicMod INSTANCE;
 	public static final int GUI_ID = 0;
+
 	@EventHandler
 	public void Perinit(FMLInitializationEvent e){
 		ScientificmagicItems.registry( this );
@@ -55,4 +61,5 @@ public class ScientificmagicMod {
 			return ScientificmagicItems.Redbeaningot;
 		}
 	};
+
 }

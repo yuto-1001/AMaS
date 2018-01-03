@@ -11,11 +11,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class ScytheRender extends Render{
-	private static final ResourceLocation ScytheTextures = new ResourceLocation("textures/item/DeathScythe.png");
+	private static final ResourceLocation ScytheTextures = new ResourceLocation("scientificmagicmod", "textures/entity/DeathScythe.png");
 
     protected ModelBase modelBullet;
 
     public ScytheRender() {
+    	
 	}
 
     public void doRender(Entity entity, double x, double y, double z, float yaw, float pitch)
