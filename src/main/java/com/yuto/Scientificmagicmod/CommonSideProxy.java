@@ -1,4 +1,4 @@
-package com.yuto.Scientificmagicmod.client;
+package com.yuto.Scientificmagicmod;
 
 import net.minecraft.world.World;
 
