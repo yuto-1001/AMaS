@@ -1,6 +1,7 @@
 package com.yuto.Scientificmagicmod.client;
 
-import com.yuto.Scientificmagicmod.ScytheRender;
+import com.yuto.Scientificmagicmod.CommonSideProxy;
+import com.yuto.Scientificmagicmod.client.Render.ScytheRender;
 import com.yuto.Scientificmagicmod.entity.EntityDeathScythe;
 
 import cpw.mods.fml.client.FMLClientHandler;
@@ -16,7 +17,7 @@ public class ClientSideProxy extends CommonSideProxy{
 
 	public void registerRenderers()
 	{
-		RenderingRegistry.registerEntityRenderingHandler(EntityDeathScythe.class, new ScytheRender(null));
+		RenderingRegistry.registerEntityRenderingHandler(EntityDeathScythe.class, new ScytheRender());
 	}
 
 }
