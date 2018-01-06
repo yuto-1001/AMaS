@@ -6,7 +6,6 @@ import com.yuto.Scientificmagicmod.Entity.EntityDeathScythe;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
@@ -15,8 +14,6 @@ import net.minecraft.util.ResourceLocation;
 @SideOnly(Side.CLIENT)
 public class ScytheRender extends Render {
 	private static final ResourceLocation ScytheTextures = new ResourceLocation("scientificmagicmod", "textures/entity/DeathScythe.png");
-
-    protected ModelBase modelBullet;
 
     public ScytheRender() {
 
@@ -27,9 +24,17 @@ public class ScytheRender extends Render {
         doRenderDeathScythe((EntityDeathScythe)entity, x, y, z, yaw, pitch);
     }
 
-    public void doRenderDeathScythe(EntityDeathScythe deathscythe, double x, double y, double z, float yaw, float pitch)
-    {
-        GL11.glPushMatrix();
+    public void doRenderDeathScythe(EntityDeathScythe deathscythe, double x, double y, double z, float yaw, float pitch){
+    	Tessellator tessellator = Tessellator.instance;
+    	float xLength = 0.5F;
+    	double zLength = 0.5F;
+    	float uMin = 0.0F;
+    	float uMax = 1.0F;
+    	float vMin = 0.0F;
+    	float vMax = 1.0F;
+    	this.bindEntityTexture(deathscythe);
+
+    	GL11.glPushMatrix();
 
         GL11.glTranslatef((float)x, (float)y, (float)z);
     	GL11.glDisable(GL11.GL_LIGHTING);
@@ -38,20 +43,15 @@ public class ScytheRender extends Render {
     	GL11.glDisable(GL11.GL_CULL_FACE);//両面描画
     	GL11.glBlendFunc(GL11.GL_ONE, GL11.GL_ONE_MINUS_SRC_COLOR);
 
+    	//int color = deathscythe.getShotColor() / 2;
+
     	this.bindTexture(getEntityTexture(deathscythe));
 
-        float size = 0.5F;
+        float size = 1.0F;
         GL11.glScalef(size, size, size);
 
-        Tessellator tessellator = Tessellator.instance;
-    	float xLength = 0.5F;
-    	double zLength = 0.5F;
-    	float uMin = 0.0F;
-    	float uMax = 0.5F;
-    	float vMin = 0.0F;
-    	float vMax = 1.0F;
-
      	GL11.glRotatef(-deathscythe.rotationPitch, 1.0F, 0.0F, 0.0F);
+    	//GL11.glRotatef(180F - (float)deathscythe.getAnimationCount() * 23F, 0.0F, 1.0F, 0.0F);
     	tessellator.startDrawingQuads();
     	tessellator.setNormal(0.0F, 1.0F, 0.0F);
         tessellator.addVertexWithUV(-xLength, 0.0F,  zLength, uMin, vMin);
@@ -60,10 +60,11 @@ public class ScytheRender extends Render {
         tessellator.addVertexWithUV(-xLength, 0.0F, -zLength, uMin, vMax);
 		tessellator.draw();
 
-    	size *= 1.1F;
+    	size *= 2.0F;
     	GL11.glScalef(size, size, size);
 
     	tessellator.startDrawingQuads();
+    	//tessellator.setColorRGBA_F(colorR[color] / 255F, colorG[color] / 255F, colorB[color] / 255F, 0.6F);
         tessellator.setNormal(0.0F, 1.0F, 0.0F);
         tessellator.addVertexWithUV(-xLength, 0.0F,  zLength, uMin, vMin);
         tessellator.addVertexWithUV( xLength, 0.0F,  zLength, uMax, vMin);
@@ -86,4 +87,5 @@ public class ScytheRender extends Render {
     {
     	return ScytheTextures;
     }
+    
 }

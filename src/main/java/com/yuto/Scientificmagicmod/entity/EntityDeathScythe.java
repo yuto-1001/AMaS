@@ -40,7 +40,6 @@ public class EntityDeathScythe extends Entity implements IProjectile {
 	protected Block inTile;
 	protected int inData;
 	protected boolean inGround;
-
 	/* この弾を撃ったエンティティ */
 	public Entity shootingEntity;
 
@@ -63,6 +62,8 @@ public class EntityDeathScythe extends Entity implements IProjectile {
 
 	protected boolean isCorrosion = false;
 	protected boolean isFire = false;
+
+	protected float f6 = 10.0F;
 
 	public EntityDeathScythe(World par1World) {
 		super(par1World);
@@ -94,11 +95,6 @@ public class EntityDeathScythe extends Entity implements IProjectile {
 				par2EntityLivingBase.posY + par2EntityLivingBase.getEyeHeight() - 0.6D, par2EntityLivingBase.posZ,
 				par2EntityLivingBase.rotationYaw, par2EntityLivingBase.rotationPitch);
 
-		// 位置の調整
-		/*this.posX += (-MathHelper.sin(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch
-				/ 180.0F * (float) Math.PI));
-		this.posZ += (MathHelper.cos(this.rotationYaw / 180.0F * (float) Math.PI) * MathHelper.cos(this.rotationPitch
-				/ 180.0F * (float) Math.PI));*/
 		this.setPosition(this.posX, this.posY, this.posZ);
 
 		float f1 = worldObj.rand.nextFloat() * 0.1F - 0.05F;
@@ -292,7 +288,6 @@ public class EntityDeathScythe extends Entity implements IProjectile {
 				}
 			}
 		}
-
 		if (movingobjectposition != null)// blockの接触判定をとっておいたのをここで処理
 		{
 			// 当たったブロックを記憶し、次Tickで上の方の埋まり判定に使う
@@ -425,36 +420,13 @@ public class EntityDeathScythe extends Entity implements IProjectile {
 		this.motionY *= f4;
 		this.motionZ *= f4;
 
+
 		// 一定以上遅くなったら消える
 		if (this.worldObj.isRemote && (this.motionX * this.motionX + this.motionZ * this.motionZ) < 0.001D) {
 			this.setDead();
 		}
-
 		this.setPosition(this.posX, this.posY, this.posZ);
 		this.func_145775_I();
-	}
-
-	@Override
-	public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound) {
-		par1NBTTagCompound.setShort("xTile", (short) this.xTile);
-		par1NBTTagCompound.setShort("yTile", (short) this.yTile);
-		par1NBTTagCompound.setShort("zTile", (short) this.zTile);
-		par1NBTTagCompound.setByte("inTile", (byte) Block.getIdFromBlock(this.inTile));
-		par1NBTTagCompound.setByte("inData", (byte) this.inData);
-		par1NBTTagCompound.setByte("inGround", (byte) (this.inGround ? 1 : 0));
-	}
-
-	/*
-	 * (abstract) Protected helper method to read subclass entity data from NBT.
-	 */
-	@Override
-	public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound) {
-		this.xTile = par1NBTTagCompound.getShort("xTile");
-		this.yTile = par1NBTTagCompound.getShort("yTile");
-		this.zTile = par1NBTTagCompound.getShort("zTile");
-		this.inTile = Block.getBlockById(par1NBTTagCompound.getByte("inTile") & 255);
-		this.inData = par1NBTTagCompound.getByte("inData") & 255;
-		this.inGround = par1NBTTagCompound.getByte("inGround") == 1;
 	}
 
 	@Override
@@ -498,4 +470,13 @@ public class EntityDeathScythe extends Entity implements IProjectile {
 	public DamageSource thisDamageSource(Entity entity) {
 		return DamageSource.wither;
 	}
+
+	@Override
+	protected void readEntityFromNBT(NBTTagCompound p_70037_1_) {
+	}
+
+	@Override
+	protected void writeEntityToNBT(NBTTagCompound p_70014_1_) {
+	}
+
 }
