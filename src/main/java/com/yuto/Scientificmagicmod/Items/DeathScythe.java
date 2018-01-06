@@ -1,7 +1,7 @@
 package com.yuto.Scientificmagicmod.Items;
 
 import com.yuto.Scientificmagicmod.ScientificmagicMod;
-import com.yuto.Scientificmagicmod.entity.EntityDeathScythe;
+import com.yuto.Scientificmagicmod.Entity.EntityDeathScythe;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.entity.player.EntityPlayer;
@@ -38,7 +38,7 @@ public class DeathScythe extends ItemSword {
 		boolean creative = entityplayer.capabilities.isCreativeMode;
 		float dam = 11.0F;
 		int cooltime = 0;
-		float speed = 4.0F;
+		float speed = 5.0F;
 		EntityDeathScythe Scythe = new EntityDeathScythe(world, entityplayer, speed, 0, dam, 0.1, cooltime);
 		if (!world.isRemote) {
 			world.spawnEntityInWorld(Scythe);
