@@ -5,6 +5,8 @@
 /.settings
 .project
 
+*build*
+
 ## gradle
 /.gradle
 /build

@@ -38,7 +38,7 @@ public class DeathScythe extends ItemSword {
 		boolean creative = entityplayer.capabilities.isCreativeMode;
 		float dam = 11.0F;
 		int cooltime = 0;
-		float speed = 5.0F;
+		float speed = 2.0F;
 		EntityDeathScythe Scythe = new EntityDeathScythe(world, entityplayer, speed, 0, dam, 0.1, cooltime);
 		if (!world.isRemote) {
 			world.spawnEntityInWorld(Scythe);
