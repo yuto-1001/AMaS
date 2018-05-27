@@ -1,4 +1,4 @@
 @echo off
 cd %~dp0
-gradlew build
+E:\mod\gradlew build
 pause
