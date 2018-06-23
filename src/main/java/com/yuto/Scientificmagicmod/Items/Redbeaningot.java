@@ -4,6 +4,7 @@ import com.yuto.Scientificmagicmod.ScientificmagicMod;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
+import net.minecraftforge.oredict.OreDictionary;
 public class Redbeaningot extends Item{
     public Redbeaningot(){
 
@@ -15,6 +16,8 @@ public class Redbeaningot extends Item{
         this.setCreativeTab( ScientificmagicMod.Scientificmagicmod );
 
         this.setTextureName( "scientificmagicmod:redbean_ingot" );
+
+        OreDictionary.registerOre("ingotRbnium",this);
 
         GameRegistry.registerItem( this, name );
 

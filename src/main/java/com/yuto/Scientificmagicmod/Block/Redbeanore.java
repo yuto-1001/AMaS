@@ -5,15 +5,16 @@ import com.yuto.Scientificmagicmod.ScientificmagicMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class Redbeanore extends Block{
 
 	protected Redbeanore() {
 		super(Material.rock);
-		
-		
+
+
 		String name = "Redbeanore";
-		
+
 		this.setCreativeTab( ScientificmagicMod.Scientificmagicmod );
 		this.setBlockName( name );
 		this.setHardness(5.0F);
@@ -22,12 +23,14 @@ public class Redbeanore extends Block{
 		this.setHarvestLevel("pickaxe", 2);
 		this.setLightLevel(0.1F);
 		this.setBlockTextureName("scientificmagicmod:redbean_ore");
-		
-		GameRegistry.registerBlock( this, name );
-		
-		
 
-		
+		OreDictionary.registerOre("oreRbnium",this);
+
+		GameRegistry.registerBlock( this, name );
+
+
+
+
 		return;
 	}
 }

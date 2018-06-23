@@ -3,7 +3,10 @@ package com.yuto.Scientificmagicmod;
 import java.io.IOException;
 
 import com.yuto.Scientificmagicmod.Block.ScientificmagicBlock;
+import com.yuto.Scientificmagicmod.Crafting.Recipes;
 import com.yuto.Scientificmagicmod.Entity.EntityDeathScythe;
+import com.yuto.Scientificmagicmod.Entity.TileEntity.TileEntityPowderMill;
+import com.yuto.Scientificmagicmod.Gui.GuiHandler;
 import com.yuto.Scientificmagicmod.Items.ScientificmagicItems;
 
 import cpw.mods.fml.common.Mod;
@@ -30,29 +33,27 @@ public class ScientificmagicMod {
 
 	public static final String MODID = "ScientificmagicMod";
 	public static final String MODNAME = "ScientificmagicMod";
-	public static final String VERSION = "1.0.0";
+	public static final String VERSION = "1.3.2";
 
 	@Mod.Instance(MODID)
 	public static ScientificmagicMod INSTANCE;
-	public static final int GUI_ID = 0;
+	public static final int PW = 1;
 
 	@EventHandler
 	public void Perinit(FMLInitializationEvent e){
 		ScientificmagicItems.registry( this );
 		ScientificmagicBlock.registry( this );
 		Recipes.registry();
+		GameRegistry.registerTileEntity(TileEntityPowderMill.class, "TileEntityPowderMill");
 		GameRegistry.registerWorldGenerator(new ScientificmagicmodGen(), 0  );
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 	}
 	@EventHandler
 	public void init1(FMLInitializationEvent event) throws IOException {
-
-		// entity
-		int id = 1;
-		EntityRegistry.registerModEntity(EntityDeathScythe.class, "Entity_DeathScythe", id, this, 128, 5, true);
+		EntityRegistry.registerModEntity(EntityDeathScythe.class, "Entity_DeathScythe", 1, this, 128, 5, true);
         }
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 		proxy.registerRenderers();
     }
 	 public static CreativeTabs Scientificmagicmod

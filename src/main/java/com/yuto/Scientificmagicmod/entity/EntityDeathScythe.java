@@ -65,6 +65,8 @@ public class EntityDeathScythe extends Entity implements IProjectile {
 
 	protected float f6 = 10.0F;
 
+	public static int count;
+
 	public EntityDeathScythe(World par1World) {
 		super(par1World);
 		this.renderDistanceWeight = 10.0D;
@@ -170,6 +172,8 @@ public class EntityDeathScythe extends Entity implements IProjectile {
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
+
+		this.count ++;
 
 		livingTimeCount++;
 		if (livingTimeCount > 300){
@@ -478,5 +482,6 @@ public class EntityDeathScythe extends Entity implements IProjectile {
 	@Override
 	protected void writeEntityToNBT(NBTTagCompound p_70014_1_) {
 	}
+
 
 }

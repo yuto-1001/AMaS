@@ -89,5 +89,4 @@ public class Bulb extends ItemSeedFood {
 		// IPlantableの実装。作物。耕地の上に設置する。
 		return EnumPlantType.Plains;
 	}
-
 }
