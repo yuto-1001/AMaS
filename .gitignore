@@ -4,6 +4,8 @@
 /eclipseBin
 /.settings
 .project
+.classpath
+.gitignore
 
 *build*
 
