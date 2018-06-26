@@ -1,17 +1,17 @@
 package com.yuto.Scientificmagicmod.Block;
 
 import com.yuto.Scientificmagicmod.ScientificmagicMod;
+import com.yuto.Scientificmagicmod.Api.CanMillItemStack;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraftforge.oredict.OreDictionary;
 
-public class Redbeanore extends Block{
+public class Redbeanore extends Block implements CanMillItemStack{
 
 	protected Redbeanore() {
 		super(Material.rock);
-
 
 		String name = "Redbeanore";
 
@@ -32,5 +32,9 @@ public class Redbeanore extends Block{
 
 
 		return;
+	}
+	public int getDamage(){
+		return 500;
+
 	}
 }

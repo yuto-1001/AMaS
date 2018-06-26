@@ -27,6 +27,8 @@ item.Diamonddust.name=Diamond Dust
 item.Irondust.name=Iron Dust
 item.Redbeandust.name=Rbnium Dust
 item.Stonedust.name=Stone Dust
+item.Obsidiandust.name=Obsidian dust
+item.Golddust.name=Gold dust
 
 item.Crystal.0.name=Energy conversion crystal
 

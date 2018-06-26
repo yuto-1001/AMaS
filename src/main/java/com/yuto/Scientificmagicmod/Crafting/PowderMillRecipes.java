@@ -20,7 +20,7 @@ public class PowderMillRecipes {
     private Map experienceList = new HashMap();
 
     /**
-     * Used to call methods addSmelting and getSmeltingResult.
+     * Used to call methods addSmelting and getmillingResult.
      */
     public static PowderMillRecipes milling()
     {
@@ -31,7 +31,9 @@ public class PowderMillRecipes {
     	this.setRecipeBlocks(ScientificmagicBlock.Redbeanore, new ItemStack(ScientificmagicItems.Redbeandust, 3), 1.0F);
     	this.setRecipeBlocks(Blocks.diamond_ore, new ItemStack(ScientificmagicItems.Diamonddust, 3), 1.0F);
     	this.setRecipeBlocks(Blocks.iron_ore, new ItemStack(ScientificmagicItems.Irondust, 3), 0.7F);
-    	this.setRecipeBlocks(Blocks.stone, new ItemStack(ScientificmagicItems.Stonedust, 3), 0.5F);
+    	this.setRecipeBlocks(Blocks.gold_ore, new ItemStack(ScientificmagicItems.Golddust, 3), 0.5F);
+    	this.setRecipeBlocks(Blocks.obsidian, new ItemStack(ScientificmagicItems.Obsidiandust, 3), 0.5F);
+    	this.setRecipeBlocks(Blocks.stone, new ItemStack(ScientificmagicItems.Stonedust, 3), 0.3F);
     }
 
     public void setRecipeBlocks(Block block, ItemStack itemStack, float millingTime)

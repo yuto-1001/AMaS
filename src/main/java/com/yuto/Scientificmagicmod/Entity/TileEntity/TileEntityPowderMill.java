@@ -1,6 +1,8 @@
 package com.yuto.Scientificmagicmod.Entity.TileEntity;
 
+import com.yuto.Scientificmagicmod.Api.CanMillItemStack;
 import com.yuto.Scientificmagicmod.Api.EnergyItem;
+import com.yuto.Scientificmagicmod.Api.MillingBlade;
 import com.yuto.Scientificmagicmod.Block.PowderMill;
 import com.yuto.Scientificmagicmod.Crafting.PowderMillRecipes;
 
@@ -27,6 +29,9 @@ public class TileEntityPowderMill extends TileEntity implements IInventory{
     public int currentItemEnergyTime;
     /** 粉砕にかかる時間 */
     public int PWMillTime;
+
+    private int damage = 0;
+
     private String InventoryName;
     private static final String __OBFID = "CL_00000357";
 
@@ -226,7 +231,7 @@ public class TileEntityPowderMill extends TileEntity implements IInventory{
 
         if (!this.worldObj.isRemote)
         {
-            if (this.PWEnergyTime != 0 || this.PWItemStacks[1] != null && this.PWItemStacks[0] != null)
+            if (this.PWEnergyTime != 0 || this.PWItemStacks[1] != null && this.PWItemStacks[0] != null && this.PWItemStacks[2] != null)
             {
                 if (this.PWEnergyTime == 0 && this.canMill())
                 {
@@ -250,9 +255,12 @@ public class TileEntityPowderMill extends TileEntity implements IInventory{
 
                 if (this.isUsingEnergy() && this.canMill())
                 {
-                    ++this.PWMillTime;
+                    if(this.PWItemStacks[2] != null && this.PWItemStacks[2].getItem() instanceof MillingBlade)
+                    	this.PWMillTime += ((MillingBlade) this.PWItemStacks[2].getItem()).getOverClock();
+					else
+						this.PWMillTime = 0;
 
-                    if (this.PWMillTime == 200)
+                    if (this.PWMillTime >= 200)
                     {
                         this.PWMillTime = 0;
                         this.MillItem();
@@ -290,12 +298,35 @@ public class TileEntityPowderMill extends TileEntity implements IInventory{
         }
         else
         {
-            ItemStack itemstack = PowderMillRecipes.milling().getmillingResult(this.PWItemStacks[0]);
-            if (itemstack == null) return false;
-            if (this.PWItemStacks[3] == null) return true;
-            if (!this.PWItemStacks[3].isItemEqual(itemstack)) return false;
-            int result = PWItemStacks[3].stackSize + itemstack.stackSize;
-            return result <= getInventoryStackLimit() && result <= this.PWItemStacks[3].getMaxStackSize();
+
+	       	Block block = null;
+			if (this.PWItemStacks[2] != null && this.PWItemStacks[0] != null){
+	       		Item item = this.PWItemStacks[0].getItem();
+	            if (item instanceof ItemBlock && Block.getBlockFromItem(item) != Blocks.air){
+	                    block = Block.getBlockFromItem(item);
+	            if(block instanceof CanMillItemStack){
+	                damage = ((CanMillItemStack) block).getDamage();
+	            }else if(item instanceof CanMillItemStack){
+		            damage = ((CanMillItemStack) item).getDamage();
+	            }else{
+	            	if(block == Blocks.diamond_ore) damage = 500;
+	            	if(block == Blocks.obsidian) damage = 100;
+	            	if(block == Blocks.iron_ore) damage = 50;
+	            	if(block == Blocks.gold_ore) damage = 25;
+	            	if(block == Blocks.stone) damage = 5;
+	            	if(block == Blocks.cobblestone) damage = 5;
+	            	if(block == Blocks.planks) damage = 3;
+	            }
+			}
+		    ItemStack itemstack = PowderMillRecipes.milling().getmillingResult(this.PWItemStacks[0]);
+	        if (itemstack == null) return false;
+	        if (this.PWItemStacks[3] == null) return true;
+	        if (!this.PWItemStacks[3].isItemEqual(itemstack)) return false;
+	        int result = PWItemStacks[3].stackSize + itemstack.stackSize;
+	        if(this.PWItemStacks[2] != null)
+	        	return result <= getInventoryStackLimit() && result <= this.PWItemStacks[3].getMaxStackSize() && this.PWItemStacks[2].getMaxDamage() - this.PWItemStacks[2].getItemDamage() > damage;
+        }
+		return false;
         }
     }
 
@@ -304,6 +335,7 @@ public class TileEntityPowderMill extends TileEntity implements IInventory{
      */
     public void MillItem()
     {
+
         if (this.canMill())
         {
             ItemStack itemstack = PowderMillRecipes.milling().getmillingResult(this.PWItemStacks[0]);
@@ -322,6 +354,9 @@ public class TileEntityPowderMill extends TileEntity implements IInventory{
             if (this.PWItemStacks[0].stackSize <= 0)
             {
                 this.PWItemStacks[0] = null;
+            }
+            if (this.PWItemStacks[2] != null && this.PWItemStacks[0] != null){
+                this.PWItemStacks[2].setItemDamage(this.PWItemStacks[2].getItemDamage() + damage);
             }
         }
     }

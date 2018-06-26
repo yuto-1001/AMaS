@@ -1,20 +1,22 @@
-package com.yuto.Scientificmagicmod.Items.MillingBlade;
+package com.yuto.Scientificmagicmod.Items;
 
 import com.yuto.Scientificmagicmod.ScientificmagicMod;
 import com.yuto.Scientificmagicmod.Api.MillingBlade;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class RbMBlade extends MillingBlade {
-	public RbMBlade() {
-		super(999999);
-		String name = "RbMBlade";
+public class ObMBlade extends MillingBlade {
+
+	public ObMBlade() {
+		super(49999);
+		String name = "ObMBlade";
 
         this.setUnlocalizedName( name );
+        maxStackSize = 1;
 
         this.setCreativeTab( ScientificmagicMod.Scientificmagicmod );
 
-        this.setTextureName( "scientificmagicmod:RbMBlade" );
+        this.setTextureName( "scientificmagicmod:ObMBlade" );
 
         GameRegistry.registerItem( this, name );
 
@@ -23,7 +25,7 @@ public class RbMBlade extends MillingBlade {
 
 	@Override
 	public int getOverClock() {
-		return 16;
+		return 8;
 	}
 
 }

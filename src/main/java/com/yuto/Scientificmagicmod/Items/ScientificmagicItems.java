@@ -2,9 +2,14 @@ package com.yuto.Scientificmagicmod.Items;
 
 import com.yuto.Scientificmagicmod.ScientificmagicMod;
 import com.yuto.Scientificmagicmod.Api.EnergyItem;
+import com.yuto.Scientificmagicmod.Api.MillingBlade;
 import com.yuto.Scientificmagicmod.Items.Energy.E_pack;
+import com.yuto.Scientificmagicmod.Items.MillingBlade.DiMBlade;
+import com.yuto.Scientificmagicmod.Items.MillingBlade.RbMBlade;
 import com.yuto.Scientificmagicmod.Items.dust.Diamonddust;
+import com.yuto.Scientificmagicmod.Items.dust.Golddust;
 import com.yuto.Scientificmagicmod.Items.dust.Irondust;
+import com.yuto.Scientificmagicmod.Items.dust.Obsidiandust;
 import com.yuto.Scientificmagicmod.Items.dust.Redbeandust;
 import com.yuto.Scientificmagicmod.Items.dust.Stonedust;
 import com.yuto.Scientificmagicmod.Items.tool.RedbeanAxe;
@@ -18,7 +23,9 @@ import net.minecraftforge.common.util.EnumHelper;
 public class ScientificmagicItems {
 	public static Item Redbeandust;
 	public static Item Diamonddust;
+	public static Item Obsidiandust;
 	public static Item Irondust;
+	public static Item Golddust;
 	public static Item Stonedust;
 
 	public static Item Redbeaningot;
@@ -38,11 +45,17 @@ public class ScientificmagicItems {
 	public static Item Crystal;
 
 	public static EnergyItem E_pack;
+
+	public static MillingBlade RbMBlade;
+	public static MillingBlade DiMBlade;
+	public static MillingBlade ObMBlade;
 	public static void registry( ScientificmagicMod mod )
 	{
 		Redbeandust = new Redbeandust();
 		Diamonddust = new Diamonddust();
+		Obsidiandust = new Obsidiandust();
 		Irondust = new Irondust();
+		Golddust = new Golddust();
 		Stonedust = new Stonedust();
 
 		Redbeaningot = new Redbeaningot();
@@ -62,6 +75,10 @@ public class ScientificmagicItems {
 		Crystal = new Crystal();
 
 		E_pack = new E_pack();
+
+		RbMBlade = new RbMBlade();
+		DiMBlade = new DiMBlade();
+		ObMBlade = new ObMBlade();
 		return;
 	}
 }

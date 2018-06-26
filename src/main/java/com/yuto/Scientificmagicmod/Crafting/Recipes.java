@@ -9,8 +9,14 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 public class Recipes {
+	
 	public static void registry(){
-		GameRegistry.addSmelting(new ItemStack(ScientificmagicItems.Redbeandust, 2), new ItemStack(ScientificmagicItems.Redbeaningot,1), 0.7F);
+		GameRegistry.addSmelting(new ItemStack(ScientificmagicItems.Redbeandust), new ItemStack(ScientificmagicItems.Redbeaningot,1), 1.0F);
+		GameRegistry.addSmelting(new ItemStack(ScientificmagicItems.Diamonddust), new ItemStack(Items.diamond,1), 1.0F);
+		GameRegistry.addSmelting(new ItemStack(ScientificmagicItems.Obsidiandust), new ItemStack(Blocks.obsidian,1), 0.7F);
+		GameRegistry.addSmelting(new ItemStack(ScientificmagicItems.Irondust), new ItemStack(Items.iron_ingot,1), 0.5F);
+		GameRegistry.addSmelting(new ItemStack(ScientificmagicItems.Golddust), new ItemStack(Items.gold_ingot,1), 0.4F);
+		GameRegistry.addSmelting(new ItemStack(ScientificmagicItems.Stonedust), new ItemStack(Blocks.stone,1), 0.3F);
 
 		GameRegistry.addSmelting(new ItemStack(ScientificmagicBlock.Redbeanore), new ItemStack(ScientificmagicItems.Redbeaningot,1), 0.7F);
 
