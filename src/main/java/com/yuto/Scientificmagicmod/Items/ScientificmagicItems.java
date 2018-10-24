@@ -2,9 +2,17 @@ package com.yuto.Scientificmagicmod.Items;
 
 import com.yuto.Scientificmagicmod.ScientificmagicMod;
 import com.yuto.Scientificmagicmod.Api.EnergyItem;
-import com.yuto.Scientificmagicmod.Api.MillingBlade;
+import com.yuto.Scientificmagicmod.Api.Mill.MillingBlade;
 import com.yuto.Scientificmagicmod.Items.Energy.E_pack;
+import com.yuto.Scientificmagicmod.Items.Foods.Bulb;
+import com.yuto.Scientificmagicmod.Items.Foods.BulbBread;
+import com.yuto.Scientificmagicmod.Items.Ingots.CII;
+import com.yuto.Scientificmagicmod.Items.Ingots.Redbeaningot;
+import com.yuto.Scientificmagicmod.Items.MagicSwords.DeathScythe;
+import com.yuto.Scientificmagicmod.Items.MagicSwords.Kagerou;
+import com.yuto.Scientificmagicmod.Items.Materials.Crystal;
 import com.yuto.Scientificmagicmod.Items.MillingBlade.DiMBlade;
+import com.yuto.Scientificmagicmod.Items.MillingBlade.ObMBlade;
 import com.yuto.Scientificmagicmod.Items.MillingBlade.RbMBlade;
 import com.yuto.Scientificmagicmod.Items.dust.Diamonddust;
 import com.yuto.Scientificmagicmod.Items.dust.Golddust;
@@ -18,6 +26,7 @@ import com.yuto.Scientificmagicmod.Items.tool.RedbeanShovel;
 import com.yuto.Scientificmagicmod.Items.tool.RedbeanSword;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemSword;
 import net.minecraftforge.common.util.EnumHelper;
 
 public class ScientificmagicItems {
@@ -31,8 +40,8 @@ public class ScientificmagicItems {
 	public static Item Redbeaningot;
 	public static Item CompressedIronIngot;
 
-	public static Item Kagerou;
-	public static Item DeathScythe;
+	public static ItemSword Kagerou;
+	public static ItemSword DeathScythe;
 
 	public static Item RedbeanSword;
 	public static Item RedbeanAxe;

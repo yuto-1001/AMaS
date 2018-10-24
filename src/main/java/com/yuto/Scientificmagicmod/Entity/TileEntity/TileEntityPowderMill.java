@@ -1,8 +1,8 @@
 package com.yuto.Scientificmagicmod.Entity.TileEntity;
 
-import com.yuto.Scientificmagicmod.Api.CanMillItemStack;
 import com.yuto.Scientificmagicmod.Api.EnergyItem;
-import com.yuto.Scientificmagicmod.Api.MillingBlade;
+import com.yuto.Scientificmagicmod.Api.Mill.CanMillItemStack;
+import com.yuto.Scientificmagicmod.Api.Mill.MillingBlade;
 import com.yuto.Scientificmagicmod.Block.PowderMill;
 import com.yuto.Scientificmagicmod.Crafting.PowderMillRecipes;
 

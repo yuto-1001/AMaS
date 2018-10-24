@@ -1,7 +1,7 @@
 package com.yuto.Scientificmagicmod.Block;
 
 import com.yuto.Scientificmagicmod.ScientificmagicMod;
-import com.yuto.Scientificmagicmod.Api.CanMillItemStack;
+import com.yuto.Scientificmagicmod.Api.Mill.CanMillItemStack;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;

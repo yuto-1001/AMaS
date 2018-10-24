@@ -1,7 +1,7 @@
 package com.yuto.Scientificmagicmod.Items.MillingBlade;
 
 import com.yuto.Scientificmagicmod.ScientificmagicMod;
-import com.yuto.Scientificmagicmod.Api.MillingBlade;
+import com.yuto.Scientificmagicmod.Api.Mill.MillingBlade;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
