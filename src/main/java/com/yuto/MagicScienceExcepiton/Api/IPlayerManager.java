@@ -12,6 +12,4 @@ public interface IPlayerManager {
 	public void addSplitPowerStats(EntityPlayer entityPlayer, int sp, float ssp);
 
 	public int getSplitPowerLevel(EntityPlayer entityPlayer);
-
-	public void addSplitPowerExhaustion(EntityPlayer entityPlayer, float amount);
 }

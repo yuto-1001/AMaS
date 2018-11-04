@@ -1,6 +1,7 @@
 package com.yuto.MagicScienceExcepiton.Player;
 
 import com.yuto.MagicScienceExcepiton.MSEConfig;
+import com.yuto.MagicScienceExcepiton.Api.MagicScienceExcepitonAPI;
 import com.yuto.MagicScienceExcepiton.Api.Event.PlayerMagicPowerEvent;
 
 import cpw.mods.fml.relauncher.Side;
@@ -14,7 +15,7 @@ import net.minecraftforge.common.MinecraftForge;
 public class MagicPowerStats {
 	//魔力
     /** 魔力 */
-    private int MagicPowerLevel = 100;
+    private int MagicPowerLevel = 0;
     private final static int MAX_MagicPower_LEVEL = 100;
     private final static int MAX_PREV_STAMINA_LEVEL = 100;
 
@@ -58,39 +59,19 @@ public class MagicPowerStats {
         if (!MSEConfig.statusMagicPower) return;
         EnumDifficulty i = par1EntityPlayer.worldObj.difficultySetting;
         this.prevMagicPowerLevel = this.MagicPowerLevel;
-
-        if (this.MagicPowerExhaustionLevel > 0.0F) {
-            //ゲームモードがピースフルではない。もしくは、コンフィグで、ピースフルでの魔力消費がオンになってるか。
-        	if (i.getDifficultyId() > 0 || MSEConfig.peacefulMagicPower) {
-            	//もとの魔力 - 減らす分
-                this.MagicPowerLevel -= this.MagicPowerExhaustionLevel;
-                this.MagicPowerExhaustionLevel = 0;
-            }
+        //ゲームモードがピースフルではない。もしくは、コンフィグで、ピースフルでの魔力消費がオンになってるか。
+        if (i.getDifficultyId() > 0 || MSEConfig.peacefulMagicPower) {
+         	//もとの魔力 - 減らす分
+        	this.MagicPowerLevel -= this.MagicPowerExhaustionLevel;
+            this.MagicPowerExhaustionLevel = 0;
         }
-
-        if (par1EntityPlayer.worldObj.getGameRules().getGameRuleBooleanValue("naturalRegeneration") && this.MagicPowerLevel >= 18 && par1EntityPlayer.shouldHeal()) {
-
-            ++this.MagicPowerTimer;
-
-            if (this.MagicPowerTimer >= 160) {
-                //par1EntityPlayer.heal(1.0F);
-                this.addExhaustion(par1EntityPlayer, 3.0F);
-                this.MagicPowerTimer = 0;
-            }
-
-        } else if (this.MagicPowerLevel <= 0) {
-            ++this.MagicPowerTimer;
-
-            if (this.MagicPowerTimer >= 80) {
-                if (par1EntityPlayer.getHealth() > 10.0F || i.getDifficultyId() >= 3 || par1EntityPlayer.getHealth() > 1.0F && i.getDifficultyId() >= 2) {
-                    //par1EntityPlayer.attackEntityFrom(DamageSource.starve, 1.0F);
-                    //ScientificMagicAPI.addStaminaExhaustion(par1EntityPlayer, 0.5f);
-                }
-
-                this.MagicPowerTimer = 0;
-            }
-        } else {
-            this.MagicPowerTimer = 0;
+        if(MagicScienceExcepitonAPI.getSplitPowerLevel(par1EntityPlayer) * 5 > this.MagicPowerLevel) {
+	        if(this.MagicPowerTimer >= 20) {
+	        	this.MagicPowerLevel += 1;
+	        	this.MagicPowerTimer = 0;
+	        }else {
+	        	this.MagicPowerTimer ++;
+	        }
         }
     }
 

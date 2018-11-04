@@ -45,6 +45,9 @@ public class Kagerou extends MagicSword {
 		if(isHeld){
 			((EntityLivingBase)entity).addPotionEffect(new PotionEffect(8, 0, 10));
 			((EntityLivingBase)entity).addPotionEffect(new PotionEffect(22, 0, 10));
+		}else {
+			((EntityLivingBase) entity).curePotionEffects(itemStack);
+
 		}
 		if(this.count == 0){
 			this.ench = false;

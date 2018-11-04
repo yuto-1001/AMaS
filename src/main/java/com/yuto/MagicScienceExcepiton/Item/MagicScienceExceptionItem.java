@@ -7,6 +7,7 @@ import com.yuto.MagicScienceExcepiton.Item.Energy.E_pack;
 import com.yuto.MagicScienceExcepiton.Item.Foods.Bulb;
 import com.yuto.MagicScienceExcepiton.Item.Foods.BulbBread;
 import com.yuto.MagicScienceExcepiton.Item.Foods.Drinks.Beer;
+import com.yuto.MagicScienceExcepiton.Item.Foods.Drinks.MagicBeer;
 import com.yuto.MagicScienceExcepiton.Item.Ingots.CII;
 import com.yuto.MagicScienceExcepiton.Item.Ingots.Redbeaningot;
 import com.yuto.MagicScienceExcepiton.Item.MagicSwords.DeathScythe;
@@ -54,6 +55,7 @@ public class MagicScienceExceptionItem {
 	public static Item RedbeanShovel;
 
 	public static Item Beer;
+	public static Item MagicBeer;
 	public static Item Bulb;
 	public static Item BulbBread;
 
@@ -86,6 +88,7 @@ public class MagicScienceExceptionItem {
 		RedbeanShovel = new RedbeanShovel(EnumHelper.addToolMaterial("RedbeanShovel", 5, 100000000, 30F, 4, 64));
 
 		Beer = new Beer(new PotionEffect[]{new PotionEffect(Potion.regeneration.id, 200, 0), new PotionEffect(9,200,0)});
+		MagicBeer = new MagicBeer(new PotionEffect[]{new PotionEffect(Potion.regeneration.id, 200, 2), new PotionEffect(9,200,0), new PotionEffect(Potion.jump.id, 200, 0), new PotionEffect(Potion.moveSpeed.id, 200, 0)});
 		Bulb = new Bulb();
 		BulbBread = new BulbBread();
 

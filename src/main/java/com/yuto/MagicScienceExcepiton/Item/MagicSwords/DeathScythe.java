@@ -1,6 +1,7 @@
 package com.yuto.MagicScienceExcepiton.Item.MagicSwords;
 
 import com.yuto.MagicScienceExcepiton.MagicScienceException;
+import com.yuto.MagicScienceExcepiton.Api.MagicScienceExcepitonAPI;
 import com.yuto.MagicScienceExcepiton.Api.MagicSword.MagicSword;
 import com.yuto.MagicScienceExcepiton.Entity.EntityDeathScythe;
 
@@ -40,7 +41,7 @@ public class DeathScythe extends MagicSword {
 		int cooltime = 0;
 		float speed = 2.0F;
 		EntityDeathScythe Scythe = new EntityDeathScythe(world, entityplayer, speed, 0, dam, 0.1, cooltime);
-		if (!world.isRemote) {
+		if (!world.isRemote && useMagicPower(entityplayer)) {
 			world.spawnEntityInWorld(Scythe);
 			if(!creative){
 				itemstack.damageItem(1, entityplayer);
@@ -50,6 +51,13 @@ public class DeathScythe extends MagicSword {
 	}
 	@Override
 	public boolean useMagicPower(EntityPlayer entityPlayer) {
-		return false;
+		int SP = MagicScienceExcepitonAPI.getSplitPowerLevel(entityPlayer);
+		int useMP = Math.round(this.MagicPowerUsageRate /SP);
+		if(MagicScienceExcepitonAPI.getMagicPowerLevel(entityPlayer) >= useMP){
+			MagicScienceExcepitonAPI.addMagicPowerExhaustion(entityPlayer, useMP * 4);
+			return true;
+		}else{
+			return false;
+		}
 	}
 }

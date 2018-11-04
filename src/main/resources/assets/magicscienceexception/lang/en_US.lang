@@ -1,13 +1,13 @@
-tile.Redbeanore.name=rbnium ore
-item.Redbeaningot.name=rbnium ingot
+tile.Redbeanore.name=Rbnium ore
+item.Redbeaningot.nameRrbnium ingot
 item.CompressedIronIngot.name=CompressedIronIngot
 
 item.DeathScythe.name=Death Scythe
 
-item.RedbeanSword.name=rbnium sword
-item.RedbeanShowball.name=rbnium  shovel
-item.RedbeanPickaxe.name=rbnium pickaxe
-item.RedbeanAxe.name=rbnium axe
+item.RedbeanSword.name=Rbnium sword
+item.RedbeanShowball.name=Rbnium  shovel
+item.RedbeanPickaxe.name=Rbnium pickaxe
+item.RedbeanAxe.name=Rbnium axe
 
 item.Bulb.0.name=Bulb(Scarlet)
 tile.CA.0.name=cluster amaryllis(Scarlet)
@@ -18,6 +18,8 @@ tile.CA_.2.name=cluster amaryllis(Indigo)
 item.Bulb.3.name=Bulb(Black)
 tile.CA.3.name=cluster amaryllis(Black)
 item.BulbBread.name=BulbBread
+item.Beer.name=Beer
+item.MagicBeer.name=MagicBeer
 
 itemGroup.MagicScienceExcepitontab=Magic Science Exception
 

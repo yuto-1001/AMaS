@@ -40,7 +40,7 @@ public class MagicScienceException {
 
 	@Mod.Instance(MODID)
 	public static MagicScienceException INSTANCE;
-	public static final int PW = 1;
+	public static final int PW = 5000;
 
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {

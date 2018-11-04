@@ -63,13 +63,4 @@ public class MagicScienceExcepitonAPI {
     public static int getSplitPowerLevel(EntityPlayer entityPlayer) {
         return playerManager.getSplitPowerLevel(entityPlayer);
     }
-
-    /**
-     * addMagicPowerExhaustion プレイヤーの霊力ゲージを減らします
-     * @param entityPlayer プレイヤー
-     * @param amount 減らす量(4.0fで1)
-     */
-    public static void addSplitPowerExhaustion(EntityPlayer entityPlayer, float amount) {
-        playerManager.addSplitPowerExhaustion(entityPlayer, amount);
-    }
 }

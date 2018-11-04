@@ -16,7 +16,7 @@ import net.minecraftforge.event.entity.player.PlayerDropsEvent;
 
 public class EntityPlayerManager implements IPlayerManager {
 
-    private final static String key = "scientificmagic";
+    private final static String key = "magicscienceexception";
 
     private final static int MAX_SPLITPOWER_LEVEL = 20;
     private final static int MAX_PREVSPLITPOWER_LEVEL = 20;
@@ -44,13 +44,6 @@ public class EntityPlayerManager implements IPlayerManager {
     public void addMagicPowerStats(EntityPlayer entityPlayer, int par1, float par2) {
         if (!entityPlayer.worldObj.isRemote) {
             getMagicPowerStats(entityPlayer).addStats(entityPlayer, par1, par2);
-        }
-    }
-
-    @Override
-    public void addSplitPowerExhaustion(EntityPlayer entityPlayer, float par1) {
-        if (!entityPlayer.worldObj.isRemote) {
-            getSplitPowerStats(entityPlayer).addExhaustion(entityPlayer, par1);
         }
     }
 

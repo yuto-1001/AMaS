@@ -10,8 +10,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class ScytheRender extends Render{
-	//ホーミングアミュレットの描画
-		private static final ResourceLocation Texture = new ResourceLocation("magicscienceexception", "textures/entity/deathscythe.png");
+		private static final ResourceLocation Texture = new ResourceLocation("magicscienceexception", "textures/entity/DeathScythe.png");
 
 		float colorR = 255F;
 	    float colorG = 255F;

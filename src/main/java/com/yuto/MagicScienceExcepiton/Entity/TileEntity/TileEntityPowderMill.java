@@ -33,7 +33,6 @@ public class TileEntityPowderMill extends TileEntity implements IInventory{
     private int damage = 0;
 
     private String InventoryName;
-    private static final String __OBFID = "CL_00000357";
 
     /**
      * インベントリーのスロットの数

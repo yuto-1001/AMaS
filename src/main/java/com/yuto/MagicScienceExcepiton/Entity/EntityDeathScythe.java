@@ -234,7 +234,7 @@ public class EntityDeathScythe extends Entity implements IProjectile {
 					if (target instanceof EntityPlayer) {
 					// プレイヤーに当たった時
 					EntityPlayer entityplayer = (EntityPlayer) target;
-						if (!entityplayer.capabilities.disableDamage || !(this.shootingEntity instanceof EntityPlayer)) {
+						if (entityplayer.capabilities.disableDamage || this.shootingEntity instanceof EntityPlayer && !((EntityPlayer) this.shootingEntity).canAttackPlayer(entityplayer)) {
 						entityList.remove(n);
 					}
 				} else if (target == this.shootingEntity) {

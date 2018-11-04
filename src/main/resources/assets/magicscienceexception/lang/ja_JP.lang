@@ -22,6 +22,7 @@ item.Bulb.3.name=球根(黒)
 tile.CA.3.name=彼岸花(黒)
 item.BulbBread.name=球根パン
 item.Beer.name=ビール
+item.MagicBeer.name=マジックビール
 
 itemGroup.MagicScienceExcepitontab=Magic Science Exception
 

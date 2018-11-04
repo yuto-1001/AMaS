@@ -17,8 +17,8 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "2.0.0"
-group= "com.yuto.ScientificmagicMod" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+version = "2.0.0-α"
+group= "com.yuto.MagicScienceException" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "MagicScienceExcepiton"
 
 minecraft {

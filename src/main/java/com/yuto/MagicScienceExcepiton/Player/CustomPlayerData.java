@@ -25,8 +25,6 @@ public class CustomPlayerData implements IExtendedEntityProperties {
         if (SplitPower.isPacket()) {
             SMPacketHandler.INSTANCE.sendTo(new PacketPlayerData(this), (EntityPlayerMP) entityPlayer);
         }
-
-        this.SplitPower.onUpdate(entityPlayer);
         this.MagicPower.onUpdate(entityPlayer);
 
     }
