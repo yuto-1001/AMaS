@@ -15,21 +15,18 @@ public class Redbeanore extends Block implements CanMillItemStack{
 
 		String name = "Redbeanore";
 
-		this.setCreativeTab( MagicScienceExcepitonAPI.ScientificMagicModTab );
+		this.setCreativeTab( MagicScienceExcepitonAPI.MagicScienceExceptionTab );
 		this.setBlockName( name );
 		this.setHardness(5.0F);
 		this.setResistance(10.0F);
 		this.setStepSound(Block.soundTypeStone);
 		this.setHarvestLevel("pickaxe", 2);
 		this.setLightLevel(0.1F);
-		this.setBlockTextureName("magicscienceexcepiton:redbean_ore");
+		this.setBlockTextureName("magicscienceexception:redbean_ore");
 
 		OreDictionary.registerOre("oreRbnium",this);
 
 		GameRegistry.registerBlock( this, name );
-
-
-
 
 		return;
 	}

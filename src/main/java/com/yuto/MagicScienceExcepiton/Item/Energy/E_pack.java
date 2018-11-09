@@ -1,7 +1,7 @@
 package com.yuto.MagicScienceExcepiton.Item.Energy;
 
-import com.yuto.MagicScienceExcepiton.MagicScienceException;
 import com.yuto.MagicScienceExcepiton.Api.EnergyItem;
+import com.yuto.MagicScienceExcepiton.Api.MagicScienceExcepitonAPI;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -12,7 +12,7 @@ public class E_pack extends EnergyItem {
         this.setUnlocalizedName( name );
         maxStackSize = 64;
 
-        this.setCreativeTab( MagicScienceException.MagicScienceExcepiton );
+        this.setCreativeTab( MagicScienceExcepitonAPI.MagicScienceExceptionTab );
 
         this.setTextureName( "magicscienceexception:E_pack" );
 

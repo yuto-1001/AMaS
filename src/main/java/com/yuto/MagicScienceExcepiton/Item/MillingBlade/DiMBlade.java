@@ -1,6 +1,6 @@
 package com.yuto.MagicScienceExcepiton.Item.MillingBlade;
 
-import com.yuto.MagicScienceExcepiton.MagicScienceException;
+import com.yuto.MagicScienceExcepiton.Api.MagicScienceExcepitonAPI;
 import com.yuto.MagicScienceExcepiton.Api.Mill.MillingBlade;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -13,7 +13,7 @@ public class DiMBlade extends MillingBlade {
         this.setUnlocalizedName( name );
         maxStackSize = 1;
 
-        this.setCreativeTab( MagicScienceException.MagicScienceExcepiton );
+        this.setCreativeTab( MagicScienceExcepitonAPI.MagicScienceExceptionTab );
 
         this.setTextureName( "magicscienceexception:DiMBlade" );
 

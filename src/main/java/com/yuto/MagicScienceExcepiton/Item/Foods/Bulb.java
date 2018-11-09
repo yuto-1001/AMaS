@@ -2,7 +2,7 @@ package com.yuto.MagicScienceExcepiton.Item.Foods;
 
 import java.util.List;
 
-import com.yuto.MagicScienceExcepiton.MagicScienceException;
+import com.yuto.MagicScienceExcepiton.Api.MagicScienceExcepitonAPI;
 import com.yuto.MagicScienceExcepiton.Block.MagicScienceExceptionBlock;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -26,7 +26,7 @@ public class Bulb extends ItemSeedFood {
 	private IIcon[] iicon = new IIcon[4];
 	public Bulb() {
 		super(30, 10, MagicScienceExceptionBlock.CA, Blocks.grass);
-		this.setCreativeTab(MagicScienceException.MagicScienceExcepiton);
+		this.setCreativeTab(MagicScienceExcepitonAPI.MagicScienceExceptionTab);
 		this.setUnlocalizedName("Bulb");
 		this.setTextureName("magicscienceexception:Bulb");
 		this.setMaxDamage(0);

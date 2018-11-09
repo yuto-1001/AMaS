@@ -1,6 +1,6 @@
 package com.yuto.MagicScienceExcepiton.Item.tool;
 
-import com.yuto.MagicScienceExcepiton.MagicScienceException;
+import com.yuto.MagicScienceExcepiton.Api.MagicScienceExcepitonAPI;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.ItemPickaxe;
@@ -12,7 +12,7 @@ public class RedbeanPickaxe extends ItemPickaxe {
 
 		String name = "RedbeanPickaxe";
 
-        this.setCreativeTab( MagicScienceException.MagicScienceExcepiton );
+        this.setCreativeTab( MagicScienceExcepitonAPI.MagicScienceExceptionTab );
         this.setUnlocalizedName( name );
         maxStackSize = 1;
 

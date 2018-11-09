@@ -113,7 +113,6 @@ public class ContainerPowderMill extends Container {
      * Shiftクリック時の処理
      */
     @Override
-    @SideOnly(Side.CLIENT)
     public ItemStack transferStackInSlot(EntityPlayer player, int slotnum)
     {
         ItemStack itemstack = null;

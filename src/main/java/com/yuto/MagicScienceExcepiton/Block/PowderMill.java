@@ -3,6 +3,7 @@ package com.yuto.MagicScienceExcepiton.Block;
 import java.util.Random;
 
 import com.yuto.MagicScienceExcepiton.MagicScienceException;
+import com.yuto.MagicScienceExcepiton.Api.MagicScienceExcepitonAPI;
 import com.yuto.MagicScienceExcepiton.Entity.TileEntity.TileEntityPowderMill;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -34,7 +35,7 @@ public class PowderMill extends BlockContainer {
 
 		String name = "PowderMill";
 		if(!b){
-			this.setCreativeTab( MagicScienceException.MagicScienceExcepiton );
+			this.setCreativeTab( MagicScienceExcepitonAPI.MagicScienceExceptionTab );
 			this.setBlockName( name );
 			this.setHardness(5.0F);
 			this.setResistance(10.0F);

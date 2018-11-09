@@ -1,6 +1,5 @@
 package com.yuto.MagicScienceExcepiton.Item.Foods.Drinks;
 
-import com.yuto.MagicScienceExcepiton.MagicScienceException;
 import com.yuto.MagicScienceExcepiton.Api.MagicScienceExcepitonAPI;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -17,11 +16,15 @@ public class MagicBeer extends ItemFood {
 	public MagicBeer(PotionEffect[] effects) {
 		super(2, 20, false);
 		this.effects = effects;
-		this.setCreativeTab(MagicScienceException.MagicScienceExcepiton);
+		this.setCreativeTab(MagicScienceExcepitonAPI.MagicScienceExceptionTab);
 		this.setUnlocalizedName("MagicBeer");
 		this.setTextureName("magicscienceexception:Beer");
 		this.setAlwaysEdible();
 		GameRegistry.registerItem(this, "MagicBeer");
+	}
+	@Override
+	public boolean hasEffect(ItemStack itemStack) {
+		return true;
 	}
 	@Override
 	public int getMaxItemUseDuration(ItemStack itemStack) {

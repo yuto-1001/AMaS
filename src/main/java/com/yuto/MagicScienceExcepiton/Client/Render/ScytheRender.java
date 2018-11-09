@@ -19,7 +19,7 @@ public class ScytheRender extends Render{
 	    public ScytheRender()
 	    {
 	    }
-
+	    @Override
 	    public void doRender(Entity entity, double x, double y, double z, float yaw, float pitch)
 	    {
 	        doRenderScythe((EntityDeathScythe)entity, x, y, z, yaw, pitch);
@@ -45,7 +45,7 @@ public class ScytheRender extends Render{
 	    	float xLength = 0.5F;
 	    	double zLength = 0.5F;
 	    	float uMin = 0.0F;
-	    	float uMax = 0.5F;
+	    	float uMax = 1.0F;
 	    	float vMin = 0.0F;
 	    	float vMax = 1.0F;
 

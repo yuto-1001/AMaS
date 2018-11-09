@@ -19,8 +19,6 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.Item;
 
 @Mod(
 	modid = MagicScienceException.MODID,
@@ -54,6 +52,7 @@ public class MagicScienceException {
 		SMPacketHandler.init(event);
 		MSEEvent.preInit(event);
 		MagicScienceExcepitonAPI.playerManager = EntityPlayerManager.instance;
+		MSECreativeTab.initCreativeTabs();
 		MagicScienceExceptionItem.registry( this );
 		MagicScienceExceptionBlock.registry( this );
 		Recipes.registry();
@@ -61,13 +60,5 @@ public class MagicScienceException {
 		GameRegistry.registerWorldGenerator(new MagicScienceExceptionGen(), 0  );
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
 	}
-	 public static CreativeTabs MagicScienceExcepiton
-     = new CreativeTabs( "MagicScienceExcepitontab" )
-	{
-		public Item getTabIconItem()
-		{
-			return MagicScienceExceptionItem.Redbeaningot;
-		}
-	};
 
 }

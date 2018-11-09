@@ -2,7 +2,7 @@ package com.yuto.MagicScienceExcepiton.Item.Materials;
 
 import java.util.List;
 
-import com.yuto.MagicScienceExcepiton.MagicScienceException;
+import com.yuto.MagicScienceExcepiton.Api.MagicScienceExcepitonAPI;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -17,7 +17,7 @@ public class Crystal extends Item {
 	private IIcon[] iicon = new IIcon[16];
 	public Crystal(){
         super ();
-        this.setCreativeTab( MagicScienceException.MagicScienceExcepiton );
+        this.setCreativeTab( MagicScienceExcepitonAPI.MagicScienceExceptionTab );
         this.setMaxDamage(0);
         this.setHasSubtypes(true);
         this.setTextureName( "magicscienceexception:Crystal" );

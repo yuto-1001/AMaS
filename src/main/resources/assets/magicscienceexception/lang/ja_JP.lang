@@ -35,6 +35,10 @@ item.Stonedust.name=石の粉
 item.Obsidiandust.name=黒曜石の粉
 item.Golddust.name=金の粉
 
+item.RbMBlade.name=ルビニウムの粉砕用ブレード
+item.ObMBlade.name=黒曜石の粉砕用ブレード
+item.DiMBlade.name=ダイヤモンドの粉砕用ブレード
+
 item.Crystal.0.name=エネルギー変換クリスタル
 
 item.E_pack.name=E_pack

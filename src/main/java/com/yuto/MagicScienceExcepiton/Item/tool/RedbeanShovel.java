@@ -3,7 +3,7 @@ package com.yuto.MagicScienceExcepiton.Item.tool;
 import java.util.Set;
 
 import com.google.common.collect.Sets;
-import com.yuto.MagicScienceExcepiton.MagicScienceException;
+import com.yuto.MagicScienceExcepiton.Api.MagicScienceExcepitonAPI;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Items;
@@ -14,10 +14,10 @@ public class RedbeanShovel extends ItemTool {
 
 	private static final Set canHarvestBlock = Sets.newHashSet(new Item[] { Items.diamond_shovel });
 	public RedbeanShovel(ToolMaterial RBS) {
-		super(4, RBS, canHarvestBlock);
+		super(5, RBS, canHarvestBlock);
 		String name = "RedbeanShowball";
 
-        this.setCreativeTab( MagicScienceException.MagicScienceExcepiton );
+        this.setCreativeTab( MagicScienceExcepitonAPI.MagicScienceExceptionTab );
         this.setUnlocalizedName( name );
         maxStackSize = 1;
 

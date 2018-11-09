@@ -1,6 +1,6 @@
 package com.yuto.MagicScienceExcepiton.Item.Foods.Drinks;
 
-import com.yuto.MagicScienceExcepiton.MagicScienceException;
+import com.yuto.MagicScienceExcepiton.Api.MagicScienceExcepitonAPI;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,7 +16,7 @@ public class Beer extends ItemFood {
 	public Beer(PotionEffect[] effects) {
 		super(1, 20, false);
 		this.effects = effects;
-		this.setCreativeTab(MagicScienceException.MagicScienceExcepiton);
+		this.setCreativeTab(MagicScienceExcepitonAPI.MagicScienceExceptionTab);
 		this.setUnlocalizedName("Beer");
 		this.setTextureName("magicscienceexception:Beer");
 		this.setAlwaysEdible();

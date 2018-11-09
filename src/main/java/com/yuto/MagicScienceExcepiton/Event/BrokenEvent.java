@@ -9,7 +9,7 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 
-public class GrassBrokenEvent {
+public class BrokenEvent {
 	@SubscribeEvent
 	public void dropClusterAmaryllis(HarvestDropsEvent event) {
 		//壊されたブロックが草（植物のやつ）の場合は

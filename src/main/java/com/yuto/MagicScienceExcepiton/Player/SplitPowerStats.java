@@ -1,6 +1,7 @@
 package com.yuto.MagicScienceExcepiton.Player;
 
 import com.yuto.MagicScienceExcepiton.MSEConfig;
+import com.yuto.MagicScienceExcepiton.Api.MagicScienceExcepitonAPI;
 import com.yuto.MagicScienceExcepiton.Api.Event.PlayerSplitPowerEvent;
 
 import cpw.mods.fml.relauncher.Side;
@@ -8,6 +9,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.EnumDifficulty;
 import net.minecraftforge.common.MinecraftForge;
 
 public class SplitPowerStats {

@@ -20,7 +20,7 @@ public class MagicScienceExcepitonAPI {
     /**
      * CreativeTabs クリエイティブタブ
      */
-    public static CreativeTabs ScientificMagicModTab;
+    public static CreativeTabs MagicScienceExceptionTab;
 
     /**
      * Player プレイヤー

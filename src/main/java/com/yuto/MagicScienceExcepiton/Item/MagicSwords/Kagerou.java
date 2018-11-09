@@ -1,6 +1,5 @@
 package com.yuto.MagicScienceExcepiton.Item.MagicSwords;
 
-import com.yuto.MagicScienceExcepiton.MagicScienceException;
 import com.yuto.MagicScienceExcepiton.Api.MagicScienceExcepitonAPI;
 import com.yuto.MagicScienceExcepiton.Api.MagicSword.MagicSword;
 
@@ -28,7 +27,7 @@ public class Kagerou extends MagicSword {
 		super(kagerou, MPUR);
 		String name = "Kagerou";
 
-        this.setCreativeTab(MagicScienceException.MagicScienceExcepiton);
+        this.setCreativeTab(MagicScienceExcepitonAPI.MagicScienceExceptionTab);
         this.setUnlocalizedName( name );
         maxStackSize = 1;
 
@@ -104,13 +103,18 @@ public class Kagerou extends MagicSword {
 
 	@Override
 	public boolean useMagicPower(EntityPlayer entityPlayer) {
-		int SP = MagicScienceExcepitonAPI.getSplitPowerLevel(entityPlayer);
-		int useMP = Math.round(this.MagicPowerUsageRate /SP);
-		if(MagicScienceExcepitonAPI.getMagicPowerLevel(entityPlayer) >= useMP){
-			MagicScienceExcepitonAPI.addMagicPowerExhaustion(entityPlayer, useMP * 4);
+		if(!entityPlayer.capabilities.isCreativeMode) {
+			int SP = MagicScienceExcepitonAPI.getSplitPowerLevel(entityPlayer);
+			if(SP == 0) return false;
+			int useMP = Math.round(this.MagicPowerUsageRate / SP);
+			if(MagicScienceExcepitonAPI.getMagicPowerLevel(entityPlayer) >= useMP){
+				MagicScienceExcepitonAPI.addMagicPowerExhaustion(entityPlayer, useMP * 4);
+				return true;
+			}else{
+				return false;
+			}
+		}else {
 			return true;
-		}else{
-			return false;
 		}
 	}
 
