@@ -1,6 +1,7 @@
 package com.yuto.MagicScienceExcepiton.Event;
 
 import com.yuto.MagicScienceExcepiton.Item.MagicScienceExceptionItem;
+import com.yuto.MagicScienceExcepiton.Item.MagicSwords.Kamigoroshi;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,8 +15,10 @@ public class PlayerEvent {
 			EntityPlayer entity = (EntityPlayer) LAEvent.entityLiving;
 			if(!entity.isDead && entity.getHeldItem() != null && entity.getHeldItem().getItem() == MagicScienceExceptionItem.Kamigoroshi) {
 				ItemStack useInItem = entity.getItemInUse();
-				if(useInItem != null) {
+				if(useInItem != null && Kamigoroshi.isRightClick) {
 					LAEvent.setCanceled(true);
+				}else {
+					Kamigoroshi.isRightClick = false;
 				}
 			}
 		}

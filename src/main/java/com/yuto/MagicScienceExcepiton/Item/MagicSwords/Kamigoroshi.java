@@ -29,9 +29,7 @@ public class Kamigoroshi extends MagicSword {
 	@Override
 	public boolean useMagicPower(EntityPlayer entityPlayer) {
 		if(!entityPlayer.capabilities.isCreativeMode) {
-			int SP = MagicScienceExcepitonAPI.getSplitPowerLevel(entityPlayer);
-			if(SP == 0) return false;
-			int useMP = Math.round(this.MagicPowerUsageRate / SP);
+			int useMP = Math.round(this.MagicPowerUsageRate);
 			if(MagicScienceExcepitonAPI.getMagicPowerLevel(entityPlayer) >= useMP){
 				MagicScienceExcepitonAPI.addMagicPowerExhaustion(entityPlayer, useMP * 4);
 				return true;
@@ -47,11 +45,15 @@ public class Kamigoroshi extends MagicSword {
 		if(!isHeld) {
 			this.isRightClick = false;
 		}
+		if(this.isRightClick) {
+			this.isRightClick = this.useMagicPower((EntityPlayer) entity);
+		}
 	}
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack p_77659_1_, World p_77659_2_, EntityPlayer p_77659_3_)
     {
+		this.isRightClick = true;
 		((EntityPlayer) p_77659_3_).setItemInUse(p_77659_1_, this.getMaxItemUseDuration(p_77659_1_));
 		return p_77659_1_;
     }

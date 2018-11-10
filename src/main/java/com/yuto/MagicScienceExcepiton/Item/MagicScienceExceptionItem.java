@@ -2,6 +2,7 @@ package com.yuto.MagicScienceExcepiton.Item;
 
 import com.yuto.MagicScienceExcepiton.MagicScienceException;
 import com.yuto.MagicScienceExcepiton.Api.EnergyItem;
+import com.yuto.MagicScienceExcepiton.Api.MagicSword.MagicSword;
 import com.yuto.MagicScienceExcepiton.Api.Mill.MillingBlade;
 import com.yuto.MagicScienceExcepiton.Item.Energy.E_pack;
 import com.yuto.MagicScienceExcepiton.Item.Foods.Bulb;
@@ -29,7 +30,6 @@ import com.yuto.MagicScienceExcepiton.Item.tool.RedbeanShovel;
 import com.yuto.MagicScienceExcepiton.Item.tool.RedbeanSword;
 
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemSword;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.common.util.EnumHelper;
@@ -45,9 +45,9 @@ public class MagicScienceExceptionItem {
 	public static Item Redbeaningot;
 	public static Item CompressedIronIngot;
 
-	public static ItemSword Kamigoroshi;
-	public static ItemSword Kagerou;
-	public static ItemSword DeathScythe;
+	public static MagicSword Kamigoroshi;
+	public static MagicSword Kagerou;
+	public static MagicSword DeathScythe;
 
 	public static Item RedbeanSword;
 	public static Item RedbeanAxe;
