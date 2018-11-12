@@ -4,13 +4,12 @@ import com.yuto.MagicScienceExcepiton.Api.MagicScienceExcepitonAPI;
 import com.yuto.MagicScienceExcepiton.Api.Magic.MagicSword;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class Kamigoroshi extends MagicSword {
-	public static int MPUR = 100;
+	public static int MPUR = 10;
 	public static boolean isRightClick = false;
 	public int rightClicktimeCount = 0;
 	public Kamigoroshi(ToolMaterial material) {
@@ -40,20 +39,10 @@ public class Kamigoroshi extends MagicSword {
 			return true;
 		}
 	}
-	@Override
-	public void onUpdate(ItemStack itemStack, World world, Entity entity, int slot, boolean isHeld) {
-		if(!isHeld) {
-			this.isRightClick = false;
-		}
-		if(this.isRightClick) {
-			this.isRightClick = this.useMagicPower((EntityPlayer) entity);
-		}
-	}
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack p_77659_1_, World p_77659_2_, EntityPlayer p_77659_3_)
     {
-		this.isRightClick = true;
 		((EntityPlayer) p_77659_3_).setItemInUse(p_77659_1_, this.getMaxItemUseDuration(p_77659_1_));
 		return p_77659_1_;
     }
