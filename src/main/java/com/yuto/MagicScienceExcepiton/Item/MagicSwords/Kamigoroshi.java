@@ -1,7 +1,7 @@
 package com.yuto.MagicScienceExcepiton.Item.MagicSwords;
 
 import com.yuto.MagicScienceExcepiton.Api.MagicScienceExcepitonAPI;
-import com.yuto.MagicScienceExcepiton.Api.MagicSword.MagicSword;
+import com.yuto.MagicScienceExcepiton.Api.Magic.MagicSword;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.entity.Entity;

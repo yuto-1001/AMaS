@@ -2,7 +2,8 @@ package com.yuto.MagicScienceExcepiton.Item;
 
 import com.yuto.MagicScienceExcepiton.MagicScienceException;
 import com.yuto.MagicScienceExcepiton.Api.EnergyItem;
-import com.yuto.MagicScienceExcepiton.Api.MagicSword.MagicSword;
+import com.yuto.MagicScienceExcepiton.Api.Magic.MagicBook;
+import com.yuto.MagicScienceExcepiton.Api.Magic.MagicSword;
 import com.yuto.MagicScienceExcepiton.Api.Mill.MillingBlade;
 import com.yuto.MagicScienceExcepiton.Item.Energy.E_pack;
 import com.yuto.MagicScienceExcepiton.Item.Foods.Bulb;
@@ -11,6 +12,7 @@ import com.yuto.MagicScienceExcepiton.Item.Foods.Drinks.Beer;
 import com.yuto.MagicScienceExcepiton.Item.Foods.Drinks.MagicBeer;
 import com.yuto.MagicScienceExcepiton.Item.Ingots.CII;
 import com.yuto.MagicScienceExcepiton.Item.Ingots.Redbeaningot;
+import com.yuto.MagicScienceExcepiton.Item.Magic.Grimoire;
 import com.yuto.MagicScienceExcepiton.Item.MagicSwords.DeathScythe;
 import com.yuto.MagicScienceExcepiton.Item.MagicSwords.Kagerou;
 import com.yuto.MagicScienceExcepiton.Item.MagicSwords.Kamigoroshi;
@@ -49,6 +51,8 @@ public class MagicScienceExceptionItem {
 	public static MagicSword Kagerou;
 	public static MagicSword DeathScythe;
 
+	public static MagicBook Grimoire;
+
 	public static Item RedbeanSword;
 	public static Item RedbeanAxe;
 	public static Item RedbeanPickaxe;
@@ -81,6 +85,8 @@ public class MagicScienceExceptionItem {
 		Kamigoroshi = new Kamigoroshi(EnumHelper.addToolMaterial("Kamigoroshi", 5, 0, 30F, 41, 64));
 		Kagerou = new Kagerou(EnumHelper.addToolMaterial("Kagerou", 5, 0, 30F, 21, 64));
 		DeathScythe = new DeathScythe(EnumHelper.addToolMaterial("DeathScythe", 5, 0, 26F, 30, 64));
+
+		Grimoire = new Grimoire(10);
 
 		RedbeanSword = new RedbeanSword(EnumHelper.addToolMaterial("RedbeanSword", 5, 100000000, 30F, 11, 64));
 		RedbeanAxe = new RedbeanAxe(EnumHelper.addToolMaterial("RedbeanAxe", 5, 100000000, 30F, 8, 64));

@@ -1,4 +1,4 @@
-package com.yuto.MagicScienceExcepiton.Api.MagicSword;
+package com.yuto.MagicScienceExcepiton.Api.Magic;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemSword;
