@@ -42,9 +42,6 @@ public class DeathScythe extends MagicSword {
 		EntityDeathScythe Scythe = new EntityDeathScythe(world, entityplayer, speed, 0, dam, 0.1, cooltime);
 		if (!world.isRemote && useMagicPower(entityplayer)) {
 			world.spawnEntityInWorld(Scythe);
-			if(!creative){
-				itemstack.damageItem(1, entityplayer);
-			}
 		}
 		return itemstack;
 	}
