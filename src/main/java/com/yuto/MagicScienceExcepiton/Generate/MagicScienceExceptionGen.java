@@ -1,4 +1,4 @@
-package com.yuto.MagicScienceExcepiton;
+package com.yuto.MagicScienceExcepiton.Generate;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package com.yuto.MagicScienceExcepiton.Block;
+package com.yuto.MagicScienceExcepiton.Block.Plants;
 
 import java.util.List;
 import java.util.Random;
@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 
 public class CA extends BlockBush{
 	private IIcon[] iicon = new IIcon[4];
-	protected CA() {
+	public CA() {
 		super(Material.grass);
 		String name = "CA";
 

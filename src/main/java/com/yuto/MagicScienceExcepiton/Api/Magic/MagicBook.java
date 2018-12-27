@@ -1,10 +1,13 @@
 package com.yuto.MagicScienceExcepiton.Api.Magic;
 
+import com.yuto.MagicScienceExcepiton.Gui.GuiScreenMagicBook;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 
 public abstract class MagicBook extends Item {
 	public int MagicPowerUsageRate;
+	public GuiScreenMagicBook bookGui;
 	/**
 	 * @author yuto
 	 * @param MPUR 魔力消費量(魔力を消費しないですって!?そんなの許さないわっ!!)

@@ -16,7 +16,7 @@ import net.minecraftforge.client.IItemRenderer;
 @SideOnly(Side.CLIENT)
 public class RenderGrimoire implements IItemRenderer {
 
-	private static final ResourceLocation resource = new ResourceLocation("textures/entity/enchanting_table_book.png");
+	private static final ResourceLocation resource = new ResourceLocation("magicscienceexception", "textures/entity/Grimoire.png");
 	private ModelBook model = new ModelBook();
 
 	@Override

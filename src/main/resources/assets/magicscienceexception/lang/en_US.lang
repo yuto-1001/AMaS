@@ -2,7 +2,11 @@ tile.Redbeanore.name=Rbnium ore
 item.Redbeaningot.nameRrbnium ingot
 item.CompressedIronIngot.name=CompressedIronIngot
 
-item.DeathScythe.name=Death Scythe
+item.Kamigoroshi.name=MagicSword-GameMasterKiller-
+item.Kagerou.name=MagicSword-HeatHaze-
+item.DeathScythe.name=MagicSword-TheEnd-
+
+item.Grimoire.name=MagicBook-Grimoire-
 
 item.RedbeanSword.name=Rbnium sword
 item.RedbeanShowball.name=Rbnium  shovel

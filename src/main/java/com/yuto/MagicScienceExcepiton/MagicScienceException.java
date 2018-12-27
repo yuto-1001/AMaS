@@ -6,6 +6,7 @@ import com.yuto.MagicScienceExcepiton.Crafting.Recipes;
 import com.yuto.MagicScienceExcepiton.Entity.EntityDeathScythe;
 import com.yuto.MagicScienceExcepiton.Entity.TileEntity.TileEntityPowderMill;
 import com.yuto.MagicScienceExcepiton.Event.MSEEvent;
+import com.yuto.MagicScienceExcepiton.Generate.MagicScienceExceptionGen;
 import com.yuto.MagicScienceExcepiton.Gui.GuiHandler;
 import com.yuto.MagicScienceExcepiton.Item.MagicScienceExceptionItem;
 import com.yuto.MagicScienceExcepiton.Packet.SMPacketHandler;

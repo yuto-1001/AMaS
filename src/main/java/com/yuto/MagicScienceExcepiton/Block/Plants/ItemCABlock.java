@@ -1,4 +1,4 @@
-package com.yuto.MagicScienceExcepiton.Block;
+package com.yuto.MagicScienceExcepiton.Block.Plants;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlockWithMetadata;

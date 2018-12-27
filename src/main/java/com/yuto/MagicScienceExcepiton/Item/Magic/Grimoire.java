@@ -1,12 +1,14 @@
 package com.yuto.MagicScienceExcepiton.Item.Magic;
 
+import java.util.Random;
+
 import com.yuto.MagicScienceExcepiton.Api.MagicScienceExcepitonAPI;
 import com.yuto.MagicScienceExcepiton.Api.Magic.MagicBook;
 import com.yuto.MagicScienceExcepiton.Entity.EntityDeathScythe;
+import com.yuto.MagicScienceExcepiton.Gui.GuiScreenMagicBook;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiScreenBook;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -17,6 +19,8 @@ import net.minecraftforge.event.entity.player.ArrowNockEvent;
 
 public class Grimoire extends MagicBook{
 	public float SpineCount;
+	public float FlippingRight = 0F;
+	public float FlippingLeft = 0F;
 	public int useCount;
 	public EntityPlayer user;
 	/**
@@ -83,7 +87,7 @@ public class Grimoire extends MagicBook{
 	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer)
     {
 		if(entityPlayer.isSneaking()) {
-			Minecraft.getMinecraft().displayGuiScreen(new GuiScreenBook(entityPlayer, itemStack, true));
+			Minecraft.getMinecraft().displayGuiScreen(new GuiScreenMagicBook(entityPlayer, itemStack));
 	        return itemStack;
 		}
 		ArrowNockEvent event = new ArrowNockEvent(entityPlayer, itemStack);
@@ -98,6 +102,7 @@ public class Grimoire extends MagicBook{
             entityPlayer.setItemInUse(itemStack, this.getMaxItemUseDuration(itemStack));
         }
 
+
         return itemStack;
     }
 	@Override
@@ -111,7 +116,7 @@ public class Grimoire extends MagicBook{
 				EntityPlayer player = (EntityPlayer) entity;
 				if(player.isUsingItem()) {
 					this.useCount ++;
-					float f = (float)this.useCount / 20.0F;
+					float f = (float)this.useCount / 50.0F;
 			        f = (f * f + f * 2.0F) / 3.0F;
 
 			        if ((double)f < 0.1D)
@@ -133,6 +138,22 @@ public class Grimoire extends MagicBook{
 				this.SpineCount = 0F;
 			}
 		}
+        if(this.SpineCount >= 0.1F) {
+        	Random rnd = new Random();
+        	// パーティクル発生地点。ブロック上面中心から半径0.8の円周上のランダムな場所
+        	double r = 0.1D + rnd.nextDouble();
+        	double t = rnd.nextDouble() * 2 * Math.PI;
+
+        	double d0 = entity.posX + r * Math.sin(t);
+        	double d1 = entity.posY - 0.8D + rnd.nextDouble();
+        	double d2 = entity.posZ + r * Math.cos(t);
+
+        	// パーティクルの移動速度。+0.03Dで上昇する
+	        double d3 = d0 - entity.posX + Math.sin(t);
+        	double d4 = -0.03D;
+        	double d5 = d2 - entity.posZ + Math.cos(t);
+        	world.spawnParticle("enchantmenttable", d0, d1, d2, d3, d4, d5);
+        }
 	}
 }
 

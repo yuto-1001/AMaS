@@ -3,9 +3,11 @@ item.Redbeaningot.name=ルビニウムインゴット
 
 item.CompressedIronIngot.name=圧縮鉄
 
-item.Kamigoroshi.name=魔剣 神殺
-item.Kagerou.name=魔剣 陽炎
-item.DeathScythe.name=魔剣 終焉
+item.Kamigoroshi.name=魔剣『神殺』
+item.Kagerou.name=魔剣『陽炎』
+item.DeathScythe.name=魔剣『終焉』
+
+item.Grimoire.name=魔導書『グリモワール』
 
 item.RedbeanSword.name=ルビニウムの剣
 item.RedbeanAxe.name=ルビニウムの斧
