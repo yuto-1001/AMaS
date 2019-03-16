@@ -6,7 +6,7 @@ import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import cpw.mods.fml.relauncher.Side;
 
 public class SMPacketHandler {
-	public static final SimpleNetworkWrapper INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel("scientificmagic");
+	public static final SimpleNetworkWrapper INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel("MagicScience");
 
     public static void init(FMLPreInitializationEvent event) {
         /*
@@ -15,7 +15,7 @@ public class SMPacketHandler {
          */
         INSTANCE.registerMessage(MassagePlayer.class, PacketPlayerData.class, 0, Side.CLIENT);
 
-        //INSTANCE.registerMessage(MessageGuiId.class, PacketGuiId.class, 1, Side.SERVER);
+        INSTANCE.registerMessage(MessageBookDataHandler.class, MessageBookData.class, 1, Side.SERVER);
 
     }
 }

@@ -6,22 +6,19 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 import com.yuto.MagicScienceExcepiton.Api.Magic.MagicBook;
+import com.yuto.MagicScienceExcepiton.Packet.MessageBookData;
+import com.yuto.MagicScienceExcepiton.Packet.SMPacketHandler;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.network.play.client.C17PacketCustomPayload;
 import net.minecraft.util.ChatAllowedCharacters;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
@@ -46,14 +43,16 @@ public class GuiScreenMagicBook extends GuiScreen
     private GuiButton buttonDone;
     private static final String __OBFID = "CL_00000744";
 
-    public GuiScreenMagicBook(EntityPlayer p_i1080_1_, ItemStack p_i1080_2_)
-    {
-        this.editingPlayer = p_i1080_1_;
-        this.bookObj = p_i1080_2_;
 
-        if (p_i1080_2_.hasTagCompound())
+    public GuiScreenMagicBook(EntityPlayer entityPlayer, ItemStack itemStack){
+        this.editingPlayer = entityPlayer;
+        this.bookObj = itemStack;
+        MagicBook book = (MagicBook) this.bookObj.getItem();
+    	book.bookGui = this;
+
+        if (itemStack.hasTagCompound())
         {
-            NBTTagCompound nbttagcompound = p_i1080_2_.getTagCompound();
+            NBTTagCompound nbttagcompound = itemStack.getTagCompound();
             this.bookPages = nbttagcompound.getTagList("pages", 8);
 
             if (this.bookPages != null)
@@ -93,7 +92,7 @@ public class GuiScreenMagicBook extends GuiScreen
     {
         this.buttonList.clear();
         Keyboard.enableRepeatEvents(true);
-        this.buttonList.add(this.buttonDone = new GuiButton(0, this.width / 3 + 22 , 4 + this.bookImageHeight, 98, 20, I18n.format("gui.done", new Object[0])));
+        this.buttonList.add(this.buttonDone = new GuiButton(0, this.width / 2 - 50 , 4 + this.bookImageHeight, 98, 20, I18n.format("gui.done", new Object[0])));
         this.updateButtons();
     }
 
@@ -104,8 +103,6 @@ public class GuiScreenMagicBook extends GuiScreen
     public void onGuiClosed()
     {
         Keyboard.enableRepeatEvents(false);
-        MagicBook book = (MagicBook) this.bookObj.getItem();
-    	book.bookGui = this;
     }
 
     private void updateButtons()
@@ -114,64 +111,16 @@ public class GuiScreenMagicBook extends GuiScreen
 
     }
 
-    private void sendBookToServer(boolean p_146462_1_)
-    {
-        if (this.field_146481_r)
-        {
-            if (this.bookPages != null)
-            {
-                String s;
-
-                while (this.bookPages.tagCount() > 1)
-                {
-                    s = this.bookPages.getStringTagAt(this.bookPages.tagCount() - 1);
-
-                    if (s.length() != 0)
-                    {
-                        break;
-                    }
-
-                    this.bookPages.removeTag(this.bookPages.tagCount() - 1);
-                }
-
-                if (this.bookObj.hasTagCompound())
-                {
-                    NBTTagCompound nbttagcompound = this.bookObj.getTagCompound();
-                    nbttagcompound.setTag("pages", this.bookPages);
-                }
-                else
-                {
-                    this.bookObj.setTagInfo("pages", this.bookPages);
-                }
-
-                s = "MC|BEdit";
-
-                if (p_146462_1_)
-                {
-                    s = "MC|BSign";
-                    this.bookObj.setTagInfo("author", new NBTTagString(this.editingPlayer.getCommandSenderName()));
-                    this.bookObj.func_150996_a(Items.written_book);
-                }
-
-                ByteBuf bytebuf = Unpooled.buffer();
-
-                try
-                {
-                    (new PacketBuffer(bytebuf)).writeItemStackToBuffer(this.bookObj);
-                    this.mc.getNetHandler().addToSendQueue(new C17PacketCustomPayload(s, bytebuf));
-                }
-                catch (Exception exception)
-                {
-                    logger.error("Couldn\'t send book info", exception);
-                }
-                finally
-                {
-                    bytebuf.release();
-                }
-            }
-        }
-    }
-
+    private void sendBookToServer() {
+		if (this.bookObj.hasTagCompound()){
+			NBTTagCompound nbttagcompound = this.bookObj.getTagCompound();
+			nbttagcompound.setTag("pages", this.bookPages);
+		}else{
+			this.bookObj.setTagInfo("pages", this.bookPages);
+		}
+		NBTTagCompound sendNBT = this.bookObj.getTagCompound();
+		SMPacketHandler.INSTANCE.sendToServer(new MessageBookData(sendNBT));
+	}
     protected void actionPerformed(GuiButton p_146284_1_)
     {
         if (p_146284_1_.enabled)
@@ -179,7 +128,7 @@ public class GuiScreenMagicBook extends GuiScreen
             if (p_146284_1_.id == 0)
             {
                 this.mc.displayGuiScreen((GuiScreen)null);
-                this.sendBookToServer(false);
+                sendBookToServer();
             }
             this.updateButtons();
         }
@@ -246,29 +195,6 @@ public class GuiScreenMagicBook extends GuiScreen
                 }
         }
     }
-/*
-    private void func_146460_c(char p_146460_1_, int p_146460_2_)
-    {
-        switch (p_146460_2_)
-        {
-            case 28:
-            case 156:
-                if (!this.bookTitle.isEmpty())
-                {
-                    this.sendBookToServer(true);
-                    this.mc.displayGuiScreen((GuiScreen)null);
-                }
-
-                return;
-            default:
-                if (this.bookTitle.length() < 16 && ChatAllowedCharacters.isAllowedCharacter(p_146460_1_))
-                {
-                    this.bookTitle = this.bookTitle + Character.toString(p_146460_1_);
-                    this.updateButtons();
-                    this.field_146481_r = true;
-                }
-        }
-    }*/
 
     private String func_146456_p()
     {

@@ -3,26 +3,29 @@ package com.yuto.MagicScienceExcepiton.Item.Magic;
 import java.util.Random;
 
 import com.yuto.MagicScienceExcepiton.Api.MagicScienceExcepitonAPI;
+import com.yuto.MagicScienceExcepiton.Api.ChantSpell.ChantSpells;
 import com.yuto.MagicScienceExcepiton.Api.Magic.MagicBook;
-import com.yuto.MagicScienceExcepiton.Entity.EntityDeathScythe;
 import com.yuto.MagicScienceExcepiton.Gui.GuiScreenMagicBook;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.ArrowNockEvent;
 
 public class Grimoire extends MagicBook{
 	public float SpineCount;
 	public float FlippingRight = 0F;
 	public float FlippingLeft = 0F;
 	public int useCount;
-	public EntityPlayer user;
+	private boolean Sflag = true;
+	private boolean GuiFlag = false;
 	/**
 	 * <b>
 	 * 	魔導書だよ！</br>
@@ -48,6 +51,7 @@ public class Grimoire extends MagicBook{
 	@Override
 	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity)
     {
+		//本の角で殴ると痛い！！
 		entity.attackEntityFrom(DamageSource.starve, 7.0F);
         return true;
     }
@@ -66,44 +70,36 @@ public class Grimoire extends MagicBook{
 		}
 	}
 	@Override
-	public void onPlayerStoppedUsing(ItemStack p_77615_1_, World p_77615_2_, EntityPlayer p_77615_3_, int p_77615_4_)
+	public void onPlayerStoppedUsing(ItemStack itemStack, World world, EntityPlayer entityPlayer, int p_77615_4_)
     {
-
-        boolean flag = p_77615_3_.capabilities.isCreativeMode;
-
-        if (flag || true)
-        {
-            float dam = 11.0F;
-    		int cooltime = 0;
-    		float speed = 2.0F;
-    		if(this.SpineCount >= 1.0F) {
-	    		EntityDeathScythe Scythe = new EntityDeathScythe(p_77615_2_, p_77615_3_, speed, 0, dam, 0.1, cooltime);
-                if(!p_77615_2_.isRemote)
-                	p_77615_2_.spawnEntityInWorld(Scythe);
-    		}
-        }
+		if (!world.isRemote) {
+		    ChantSpells chantSpells = new ChantSpells();
+		    boolean flag = entityPlayer.capabilities.isCreativeMode;
+		    if (this.bookGui == null)
+		    	this.bookGui = new GuiScreenMagicBook(entityPlayer, itemStack);
+		    String spell = this.bookGui.getBookPageString();
+		    if (this.SpineCount >= 1.0F) {
+		    	entityPlayer.addChatMessage(new ChatComponentText(I18n.format("msg.Chanting", spell)));
+				if (!((flag || (this.useMagicPower(entityPlayer))) && chantSpells.ChantSpell(spell, entityPlayer))){
+					entityPlayer.addChatMessage(new ChatComponentText(I18n.format("msg.ChantingFai", spell)));
+				}
+		    }
+		}
     }
+	@SideOnly(Side.CLIENT)
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemStack, World world, EntityPlayer entityPlayer)
     {
 		if(entityPlayer.isSneaking()) {
-			Minecraft.getMinecraft().displayGuiScreen(new GuiScreenMagicBook(entityPlayer, itemStack));
-	        return itemStack;
+			if (world.isRemote)
+				Minecraft.getMinecraft().displayGuiScreen(new GuiScreenMagicBook(entityPlayer, itemStack));
+			return itemStack;
+		}else {
+			if (entityPlayer.capabilities.isCreativeMode || this.useMagicPower(entityPlayer)){
+				entityPlayer.setItemInUse(itemStack, this.getMaxItemUseDuration(itemStack));
+			}
+			return itemStack;
 		}
-		ArrowNockEvent event = new ArrowNockEvent(entityPlayer, itemStack);
-        MinecraftForge.EVENT_BUS.post(event);
-        if (event.isCanceled())
-        {
-            return event.result;
-        }
-
-        if (entityPlayer.capabilities.isCreativeMode || true)
-        {
-            entityPlayer.setItemInUse(itemStack, this.getMaxItemUseDuration(itemStack));
-        }
-
-
-        return itemStack;
     }
 	@Override
 	public int getMaxItemUseDuration(ItemStack itemstack) {
@@ -155,5 +151,10 @@ public class Grimoire extends MagicBook{
         	world.spawnParticle("enchantmenttable", d0, d1, d2, d3, d4, d5);
         }
 	}
+	@Override
+	public boolean getShareTag()
+    {
+        return true;
+    }
 }
 

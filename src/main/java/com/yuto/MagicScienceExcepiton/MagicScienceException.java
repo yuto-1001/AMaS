@@ -35,7 +35,7 @@ public class MagicScienceException {
 
 	public static final String MODID = "MagicScienceExcepiton";
 	public static final String MODNAME = "MagicScienceExcepiton";
-	public static final String VERSION = "2.0.0++Alpha";
+	public static final String VERSION = "2.0.1Alpha";
 
 	@Mod.Instance(MODID)
 	public static MagicScienceException INSTANCE;
