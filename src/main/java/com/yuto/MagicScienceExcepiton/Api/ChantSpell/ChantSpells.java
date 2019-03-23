@@ -11,6 +11,9 @@ public class ChantSpells {
 	public boolean ChantSpell(String spell, EntityPlayer caster) {
 		String Words[];
 		Words = this.SplitWords(spell);
+		if (Words.length != 4) {
+			return false;
+		}
 		for (String i : Words) {
 			if (i == "" || i == null) {
 				return false;

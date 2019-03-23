@@ -21,8 +21,6 @@ import net.minecraft.world.World;
 
 public class Grimoire extends MagicBook{
 	public float SpineCount;
-	public float FlippingRight = 0F;
-	public float FlippingLeft = 0F;
 	public int useCount;
 	private boolean Sflag = true;
 	private boolean GuiFlag = false;

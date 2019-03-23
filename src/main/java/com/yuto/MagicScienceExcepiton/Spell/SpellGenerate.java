@@ -3,6 +3,7 @@ package com.yuto.MagicScienceExcepiton.Spell;
 import com.yuto.MagicScienceExcepiton.Api.Spell.Spell;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentText;
@@ -13,6 +14,10 @@ public class SpellGenerate extends Spell {
 		super(caster, word1, word2, word3);
 		caster.addChatMessage(new ChatComponentText(I18n.format("msg.doing", "Generate")));
 		boolean flag[] = {true, true, true};
+		int posX = 0;
+		int posY = 0;
+		int posZ = 0;
+		Block hereBlock;
 		this.GenBlock = getTarget(word1);
 		if (this.GenBlock == null) {
 			caster.addChatMessage(new ChatComponentText(I18n.format("msg.nullpo", word1)));
@@ -32,7 +37,31 @@ public class SpellGenerate extends Spell {
 			caster.addChatMessage(new ChatComponentText(I18n.format("msg.fail", "Generate")));
 			return ;
 		}
-		this.CASTER.getEntityWorld().setBlock((int) Math.floor((double) this.Pos[0]), (int) Math.floor((double) this.Pos[1] + 1), (int) Math.floor((double) this.Pos[2]), this.GenBlock);
+		Minecraft minecraft = Minecraft.getMinecraft();
+		int side = minecraft.objectMouseOver.sideHit;
+		switch (side) {
+			case 0 :
+				this.Pos[1] -= 1;
+				break;
+			case 1 :
+				this.Pos[1] += 1;
+				break;
+			case 2 :
+				this.Pos[2] -= 1;
+				break;
+			case 3 :
+				this.Pos[2] += 1;
+				break;
+			case 4 :
+				this.Pos[0] -= 1;
+				break;
+			case 5 :
+				this.Pos[0] += 1;
+				break;
+			default :
+				break;
+		}
+		this.CASTER.getEntityWorld().setBlock((int) Math.floor((double) this.Pos[0]), (int) Math.floor((double) this.Pos[1]), (int) Math.floor((double) this.Pos[2]), this.GenBlock);
 		caster.addChatMessage(new ChatComponentText(I18n.format("msg.suc", "Generate")));
 	}
 

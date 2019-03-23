@@ -60,5 +60,10 @@ processResources
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
     }
-    tasks.withType(Jar) {compileJava.options.encoding = 'UTF-8'}
+    tasks.withType(Jar) {
+        [compileJava, compileTestJava].each{
+            it.options.encoding = 'UTF-8'
+            it.options.compilerArgs += ['-source', '1.8', '-target', '1.8']
+        }
+    }
 }

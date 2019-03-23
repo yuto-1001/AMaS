@@ -37,18 +37,21 @@ public abstract class Spell {
 		float posX;
 		float posY;
 		float posZ;
+		float onAir;
 		if (position.equals("here")) {
 			MovingObjectPosition pos = Minecraft.getMinecraft().renderViewEntity.rayTrace(5.0D, 1.0F);
 			if (pos != null) {
 				posX = pos.blockX;
 				posY = pos.blockY;
 				posZ = pos.blockZ;
+				onAir = 0;
 			}else {
 				float yaw = this.CASTER.rotationYaw;
 				float pitch = this.CASTER.rotationPitch;
 				posX = (float) (this.CASTER.posX + (MathHelper.sin(pitch) * MathHelper.cos(yaw)));
 				posZ = (float) (this.CASTER.posZ + (MathHelper.sin(pitch) * MathHelper.sin(yaw)));
 				posY = (float) (this.CASTER.posY + MathHelper.cos(pitch));
+				onAir = 1;
 			}
 		}else if (position.matches("pos\\{\\-?[0-9]+,\\-?[0-9]+,\\-?[0-9]+\\}")) {
 			int index = position.indexOf("{") + 1;
@@ -57,10 +60,11 @@ public abstract class Spell {
 			posX = Float.parseFloat(pos[0]);
 			posY = Float.parseFloat(pos[1]);
 			posZ = Float.parseFloat(pos[2]);
+			onAir = 1;
 		}else {
 			return null;
 		}
-		float pos[] = {posX, posY, posZ};
+		float pos[] = {posX, posY, posZ, onAir};
 		return pos;
 	}
 }
