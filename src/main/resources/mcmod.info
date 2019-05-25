@@ -1,6 +1,6 @@
 [
 {
-  "modid": "MagicScienceException",
+  "modid": "AMaS",
   "name": "Magic Science Exception",
   "description": "add the concept of magical power to minecraft.",
   "version": "${version}",
