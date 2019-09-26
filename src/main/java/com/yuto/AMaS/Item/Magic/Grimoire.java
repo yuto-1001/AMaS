@@ -46,10 +46,12 @@ public class Grimoire extends MagicBook{
 		return true;
 
 	}
+	/**
+	 *
+	 * 本の角で殴ると痛い！！
+	 */
 	@Override
-	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity)
-    {
-		//本の角で殴ると痛い！！
+	public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
 		entity.attackEntityFrom(DamageSource.starve, 7.0F);
         return true;
     }
@@ -110,7 +112,7 @@ public class Grimoire extends MagicBook{
 				EntityPlayer player = (EntityPlayer) entity;
 				if(player.isUsingItem()) {
 					this.useCount ++;
-					float f = (float)this.useCount / 50.0F;
+					float f = (float)this.useCount / 25.0F;
 			        f = (f * f + f * 2.0F) / 3.0F;
 
 			        if ((double)f < 0.1D)
@@ -150,8 +152,7 @@ public class Grimoire extends MagicBook{
         }
 	}
 	@Override
-	public boolean getShareTag()
-    {
+	public boolean getShareTag() {
         return true;
     }
 }
