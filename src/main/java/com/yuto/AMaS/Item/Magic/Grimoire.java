@@ -27,7 +27,7 @@ public class Grimoire extends MagicBook{
 	/**
 	 * <b>
 	 * 	魔導書だよ！</br>
-	 * 	誰かさん曰く"知ってた？魔導書は鈍器にもなるのよ。"
+	 * 	誰かさん曰く"知ってた？魔導書は鈍器にもなるのよ。"だそうです
 	 * </b>
 	 * @param MPUR 魔力消費量
 	 */
@@ -79,9 +79,9 @@ public class Grimoire extends MagicBook{
 		    	this.bookGui = new GuiScreenMagicBook(entityPlayer, itemStack);
 		    String spell = ((GuiScreenMagicBook) this.bookGui).getBookPageString();
 		    if (this.SpineCount >= 1.0F) {
-		    	entityPlayer.addChatMessage(new ChatComponentText(I18n.format("msg.Chanting", spell)));
-				if (!((flag || (this.useMagicPower(entityPlayer))) && chantSpells.ChantSpell(spell, entityPlayer))){
-					entityPlayer.addChatMessage(new ChatComponentText(I18n.format("msg.ChantingFai", spell)));
+		    	entityPlayer.addChatMessage(new ChatComponentText(I18n.format("msg.Chanting", spell.replaceAll("\n", " "))));
+				if (!chantSpells.ChantSpell(spell, entityPlayer)){
+					entityPlayer.addChatMessage(new ChatComponentText(I18n.format("msg.ChantingFai", spell.replaceAll("\n", " "))));
 				}
 		    }
 		}
